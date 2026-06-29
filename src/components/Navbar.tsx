@@ -27,7 +27,7 @@ export function Navbar() {
         initial={{ y: -24, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className={`flex w-full max-w-6xl items-center justify-between rounded-full border px-3 py-2.5 transition-all duration-300 ${
+        className={`relative z-[60] flex w-full max-w-6xl items-center justify-between rounded-full border px-3 py-2.5 transition-all duration-300 ${
           scrolled
             ? "border-border-strong bg-[#0a0c11]/80 backdrop-blur-xl"
             : "border-transparent bg-transparent"
@@ -98,6 +98,7 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setOpen(false)}
             className="fixed inset-0 top-0 z-40 bg-background/95 px-6 pt-28 backdrop-blur-xl md:hidden"
           >
             <ul className="flex flex-col gap-1">
