@@ -120,9 +120,16 @@ export function Navbar() {
               ))}
             </ul>
             <Link
+              href="/signin"
+              onClick={() => setOpen(false)}
+              className="mt-8 block rounded-full border border-border-strong py-3.5 text-center font-medium text-white"
+            >
+              Sign in
+            </Link>
+            <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-8 block rounded-full bg-white py-3.5 text-center font-medium text-black"
+              className="mt-3 block rounded-full bg-white py-3.5 text-center font-medium text-black"
             >
               Get in touch
             </Link>
