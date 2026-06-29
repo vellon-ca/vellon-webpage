@@ -18,12 +18,17 @@ export function ContactForm() {
     setPending(true);
     const formData = new FormData(e.currentTarget);
     formData.set("segment", segment);
-    const result = await sendContact(formData);
-    setPending(false);
-    if (result.ok) {
-      setSubmitted(true);
-    } else {
-      setError(result.error);
+    try {
+      const result = await sendContact(formData);
+      if (result.ok) {
+        setSubmitted(true);
+      } else {
+        setError(result.error);
+      }
+    } catch {
+      setError("Something went wrong. Please try again or email hello@vellon.ca.");
+    } finally {
+      setPending(false);
     }
   }
 

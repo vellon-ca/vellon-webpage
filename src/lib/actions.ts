@@ -2,8 +2,6 @@
 
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export type ContactResult = { ok: true } | { ok: false; error: string };
 
 const escapeHtml = (s: string) =>
@@ -34,6 +32,7 @@ export async function sendContact(formData: FormData): Promise<ContactResult> {
   }
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: "Vellon Website <no-reply@vellon.ca>",
       to: ["hello@vellon.ca"],
