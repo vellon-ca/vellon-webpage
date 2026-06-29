@@ -2,17 +2,29 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { sendContact } from "@/lib/actions";
 
 const segments = ["Individual", "Enterprise", "Healthcare", "Government"];
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [segment, setSegment] = useState(segments[1]);
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // No backend yet — wire to Resend/Supabase/Formspree when ready.
-    setSubmitted(true);
+    setError(null);
+    setPending(true);
+    const formData = new FormData(e.currentTarget);
+    formData.set("segment", segment);
+    const result = await sendContact(formData);
+    setPending(false);
+    if (result.ok) {
+      setSubmitted(true);
+    } else {
+      setError(result.error);
+    }
   }
 
   return (
@@ -96,14 +108,33 @@ export function ContactForm() {
               />
             </div>
 
+            {/* Honeypot — hidden from humans, catches bots */}
+            <input
+              type="text"
+              name="company_website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute left-[-9999px] h-0 w-0 opacity-0"
+            />
+
+            {error && (
+              <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-3.5 py-2.5 text-sm text-red-300">
+                {error}
+              </p>
+            )}
+
             <button
               type="submit"
-              className="group w-full rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-[1.02]"
+              disabled={pending}
+              className="group w-full rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Send message
-              <span className="ml-1.5 inline-block transition-transform group-hover:translate-x-0.5">
-                →
-              </span>
+              {pending ? "Sending…" : "Send message"}
+              {!pending && (
+                <span className="ml-1.5 inline-block transition-transform group-hover:translate-x-0.5">
+                  →
+                </span>
+              )}
             </button>
           </motion.form>
         )}
