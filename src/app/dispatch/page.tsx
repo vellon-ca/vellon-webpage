@@ -5,6 +5,7 @@ import { CTA } from "@/components/CTA";
 import { DispatchLoop } from "@/components/dispatch/DispatchLoop";
 import { SurfacePair } from "@/components/dispatch/SurfacePair";
 import { Films } from "@/components/dispatch/Films";
+import { dispatchAppUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Vellon Dispatch",
@@ -277,9 +278,21 @@ export default function DispatchPage() {
         </div>
       </section>
 
+      {/* The two account doors, at the end rather than the top: getting set up
+          still goes through us, and a fleet already running Dispatch is
+          signing in to an app that lives off this site. */}
       <CTA
+        eyebrow="Get started"
         title="See it running on your own map."
         body="Half an hour, your streets, your fares. We'll set the board up with your pickup points before the call."
+        actions={[
+          { label: "Set up your fleet", href: "/contact" },
+          {
+            label: "Sign in to your board",
+            href: dispatchAppUrl,
+            external: true,
+          },
+        ]}
       />
     </>
   );

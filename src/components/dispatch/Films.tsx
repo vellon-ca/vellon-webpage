@@ -99,10 +99,14 @@ export function Films() {
             }}
             className="index-row group grid w-full grid-cols-1 items-center gap-x-8 gap-y-4 border-b border-rule px-1 py-7 text-left hover:bg-surface-2 md:grid-cols-[12rem_3rem_minmax(0,1fr)_6rem] md:py-6"
           >
+            {/* Full-resolution, because the same file is the panel's poster —
+                one fetch serves the 12rem thumbnail and the 70rem still. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={f.poster}
               alt=""
+              loading="lazy"
+              decoding="async"
               className="block h-auto w-full border border-rule-2"
             />
             <span className="numeral text-[0.8125rem] text-fg-3">{f.dur}</span>
