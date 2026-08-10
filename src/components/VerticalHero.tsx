@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Vertical } from "@/lib/site";
 import { ease } from "./Reveal";
-import { SpellOut } from "./SpellOut";
+import { Typewriter } from "./Typewriter";
 
 /* The index numeral arrives like an odometer coming to rest: the last digit
    rolls through the ten and lands on the sector's number.
@@ -79,11 +79,11 @@ export function VerticalHero({ vertical }: { vertical: Vertical }) {
           </motion.span>
 
           <div className="col-span-12 md:col-span-10 md:col-start-3">
-            {/* The sector's name types itself in. The headline underneath
-                keeps its plain lift — two competing entrances on one hero
-                reads as noise, and this is the line that names the page. */}
+            {/* The sector's name is typed in. The headline underneath keeps
+                its plain lift — two competing entrances on one hero reads as
+                noise, and this is the line that names the page. */}
             <p className="label !text-brass">
-              <SpellOut text={`For ${vertical.name}`} delay={0.12} />
+              <Typewriter text={`For ${vertical.name}`} delay={0.18} />
             </p>
             <motion.h1
               {...rise(0.34)}
