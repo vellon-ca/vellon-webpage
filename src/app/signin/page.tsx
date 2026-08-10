@@ -1,21 +1,14 @@
-import type { Metadata } from "next";
-import { SignInForm } from "@/components/SignInForm";
+import { redirect } from "next/navigation";
+import { dispatchAppUrl } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Sign in",
-  description: "Sign in to your Vellon account.",
-};
+/* There is no Vellon-wide account yet — the only thing anyone can sign in to
+   is the dispatch board, which runs as its own app off this site. So /signin
+   is a door, not a form: every sign-in affordance on the site (navbar, mobile
+   menu, the two on /dispatch) lands on the same place.
 
+   `SignInForm` is left in the repo, unrouted. If Vellon ever has accounts of
+   its own, this file goes back to rendering it and the product-specific doors
+   keep pointing at their own apps. */
 export default function SignInPage() {
-  return (
-    <section className="relative flex min-h-[85vh] items-center overflow-hidden px-6 pt-32 pb-24 md:px-10">
-      <div className="mx-auto w-full max-w-[86rem]">
-        <div className="grid grid-cols-12">
-          <div className="col-span-12 md:col-span-5 md:col-start-4">
-            <SignInForm />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  redirect(dispatchAppUrl);
 }

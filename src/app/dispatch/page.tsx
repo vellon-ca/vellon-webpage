@@ -67,10 +67,43 @@ export default function DispatchPage() {
       {/* ---------- Hero ---------- */}
       <section className="pt-32 pb-14 md:pt-40 md:pb-20">
         <div className="mx-auto max-w-[86rem] px-6 md:px-10">
-          <div className="grid grid-cols-1 items-end gap-x-0 gap-y-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-x-16">
-            <Reveal>
+          {/* Product masthead. The name of the product, and beside it the two
+              doors into it — the same pair, under the same labels, as the
+              closing band. A fleet arriving to start and a dispatcher arriving
+              to work both find their way in without reaching the fold. Kept at
+              label scale on purpose: it's a tier above the hero actions, not a
+              third peer inside them, so "Book a demo" stays the primary ask. */}
+          <Reveal>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-4 border-b border-rule pb-4">
               <p className="label">Vellon Dispatch</p>
-              <h1 className="display display-xl mt-6 max-w-[15ch]">
+              <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 border-b border-fg pb-[3px] text-[0.8125rem] font-semibold text-fg"
+                >
+                  Set up your fleet
+                  <span className="transition-transform duration-400 group-hover:translate-x-[3px]">
+                    &rarr;
+                  </span>
+                </Link>
+                <a
+                  href={dispatchAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-draw text-[0.8125rem] font-medium text-fg-2 transition-colors hover:text-fg"
+                >
+                  Sign in to your board
+                  <span aria-hidden className="ml-1 text-fg-3">
+                    &#8599;
+                  </span>
+                </a>
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="mt-12 grid grid-cols-1 items-end gap-x-0 gap-y-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-x-16">
+            <Reveal>
+              <h1 className="display display-xl max-w-[15ch]">
                 Run the whole fleet from one screen.
               </h1>
               <p className="lede mt-7 max-w-[48ch] text-pretty">
