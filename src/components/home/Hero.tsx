@@ -54,12 +54,11 @@ export function Hero() {
             </motion.div>
           </div>
 
-          <motion.div
-            {...rise(0.35, 0)}
-            className="col-span-12 lg:col-span-6 lg:pl-4"
-          >
+          {/* No wrapper fade here: the figure draws itself in, and fading the
+              whole thing would play that reveal at low opacity. */}
+          <div className="col-span-12 lg:col-span-6 lg:pl-4">
             <SectorStack className="h-auto w-full max-w-[620px]" />
-          </motion.div>
+          </div>
         </div>
 
         {/* Company metadata as an instrument read-out. The cells carry their
