@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function SignInForm() {
   function handleSubmit(e: React.FormEvent) {
@@ -9,70 +9,72 @@ export function SignInForm() {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className="card-glow relative w-full max-w-md rounded-3xl border border-border bg-surface/60 p-7 md:p-8"
-    >
-      <h1 className="text-2xl font-semibold tracking-tight text-white">
-        Sign in to Vellon
+    <div>
+      <p className="label">Account</p>
+      <h1 className="display mt-5 text-[clamp(2rem,3.4vw,2.8rem)] leading-tight">
+        Sign in to Vellon.
       </h1>
-      <p className="mt-2 text-sm text-muted">
+      <p className="mt-4 text-[0.9375rem] text-ink-2">
         Welcome back. Enter your details to continue.
       </p>
 
-      <form onSubmit={handleSubmit} className="mt-7 space-y-5">
+      <form
+        onSubmit={handleSubmit}
+        className="mt-10 space-y-8 border-t border-ink/25 pt-8"
+      >
         <div>
-          <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-muted-2">
+          <label htmlFor="email" className="label mb-2 block">
             Email
           </label>
           <input
+            id="email"
             type="email"
             name="email"
             required
             placeholder="you@company.com"
-            className="w-full rounded-lg border border-border bg-background/60 px-3.5 py-2.5 text-sm text-white outline-none transition-colors placeholder:text-muted-2 focus:border-border-strong"
+            className="field-line"
           />
         </div>
+
         <div>
-          <div className="mb-2 flex items-center justify-between">
-            <label className="block text-xs font-medium uppercase tracking-wider text-muted-2">
+          <div className="mb-2 flex items-baseline justify-between">
+            <label htmlFor="password" className="label">
               Password
             </label>
             <button
               type="button"
-              className="text-xs text-muted transition-colors hover:text-white"
+              className="link-draw text-xs text-ink-3 transition-colors hover:text-ink"
             >
               Forgot?
             </button>
           </div>
           <input
+            id="password"
             type="password"
             name="password"
             required
             placeholder="••••••••"
-            className="w-full rounded-lg border border-border bg-background/60 px-3.5 py-2.5 text-sm text-white outline-none transition-colors placeholder:text-muted-2 focus:border-border-strong"
+            className="field-line"
           />
         </div>
 
         <button
           type="submit"
-          className="group w-full rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-[1.02]"
+          className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-sm font-semibold text-ink"
         >
           Sign in
-          <span className="ml-1.5 inline-block transition-transform group-hover:translate-x-0.5">
-            →
+          <span className="transition-transform duration-400 group-hover:translate-x-1">
+            &rarr;
           </span>
         </button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-muted">
-        Don&apos;t have an account?{" "}
-        <a href="/contact" className="text-white underline-offset-4 hover:underline">
+      <p className="mt-8 text-sm text-ink-2">
+        Don&rsquo;t have an account?{" "}
+        <Link href="/contact" className="link-draw text-ink">
           Get in touch
-        </a>
+        </Link>
       </p>
-    </motion.div>
+    </div>
   );
 }

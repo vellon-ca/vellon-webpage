@@ -1,116 +1,112 @@
 export type Vertical = {
   slug: string;
+  index: string; // editorial index numeral, e.g. "01"
   name: string;
   nav: string;
   tagline: string;
   blurb: string;
   description: string;
-  accent: string; // tailwind gradient classes
-  glow: string; // rgba for glows
   features: { title: string; body: string }[];
 };
 
 export const verticals: Vertical[] = [
   {
     slug: "individuals",
+    index: "01",
     name: "Individuals",
     nav: "For Individuals",
-    tagline: "AI that makes everyday life smarter.",
-    blurb: "Tools that make everyday life smarter, simpler, and more connected.",
+    tagline: "Software that gets out of the way.",
+    blurb:
+      "Tools that remove friction from everyday life, without demanding attention in return.",
     description:
-      "Personal AI that quietly works in the background of your day — organizing, anticipating, and removing friction so the small things take care of themselves.",
-    accent: "from-indigo-400 to-cyan-300",
-    glow: "rgba(99, 102, 241, 0.35)",
+      "Personal software that quietly works in the background of your day — organising, anticipating, and removing friction so the small things take care of themselves.",
     features: [
       {
         title: "Always available",
-        body: "Intelligent assistance that's there whenever you need it, across every device you own.",
+        body: "Assistance that's there when you need it, across every device you own, and silent when you don't.",
       },
       {
         title: "Private by design",
-        body: "Your data stays yours. We build with privacy as a default, not an afterthought.",
+        body: "Your data stays yours. We build with privacy as a default, not as a setting you have to find.",
       },
       {
         title: "Genuinely useful",
-        body: "No gimmicks. Tools that save you real time on the things you actually do.",
+        body: "No gimmicks. Tools that save real time on the things you actually do, measured in minutes, not adjectives.",
       },
     ],
   },
   {
     slug: "enterprise",
+    index: "02",
     name: "Enterprise",
     nav: "For Enterprise",
     tagline: "Scale without friction.",
     blurb:
-      "Intelligent systems that help businesses operate faster and make better decisions.",
+      "Operational systems that help businesses move faster and decide with confidence.",
     description:
-      "Operational intelligence for modern businesses — systems that help teams move faster, decide with confidence, and scale without adding friction.",
-    accent: "from-violet-400 to-indigo-300",
-    glow: "rgba(139, 92, 246, 0.35)",
+      "Operational intelligence for modern businesses — systems that help teams move faster, decide with confidence, and scale without adding friction to the work.",
     features: [
       {
         title: "Faster operations",
-        body: "Automate the repetitive and surface the important. Your team focuses on the work that matters.",
+        body: "Automate the repetitive and surface the important, so your team spends its hours on the work that actually compounds.",
       },
       {
         title: "Better decisions",
-        body: "Turn scattered data into clear, defensible decisions — in real time, at any scale.",
+        body: "Turn scattered data into clear, defensible decisions — in real time, at whatever scale you're operating.",
       },
       {
         title: "Built to scale",
-        body: "Infrastructure that grows with you, from your first hundred users to your first hundred million.",
+        body: "Infrastructure that grows with you, from your first hundred users to your first hundred thousand.",
       },
     ],
   },
   {
     slug: "healthcare",
+    index: "03",
     name: "Healthcare",
     nav: "For Healthcare",
-    tagline: "Precision the world can trust.",
+    tagline: "Precision worth trusting.",
     blurb:
-      "AI that improves patient outcomes and supports medical professionals with precision.",
+      "Systems that improve patient outcomes and give clinicians back their time.",
     description:
-      "Clinical-grade AI that improves patient outcomes, streamlines operations, and supports medical professionals with precision and reliability they can depend on.",
-    accent: "from-emerald-400 to-teal-300",
-    glow: "rgba(16, 185, 129, 0.32)",
+      "Clinical-grade software that improves patient outcomes, streamlines operations, and supports medical professionals with precision and reliability they can depend on.",
     features: [
       {
         title: "Better outcomes",
-        body: "Decision support that helps clinicians catch what matters earlier and act with confidence.",
+        body: "Decision support that helps clinicians catch what matters earlier and act on it with confidence.",
       },
       {
-        title: "Streamlined operations",
-        body: "Reduce administrative load so providers can spend more time with patients, less with paperwork.",
+        title: "Less paperwork",
+        body: "Reduce administrative load so providers spend more time with patients and less with forms.",
       },
       {
-        title: "Reliable & compliant",
-        body: "Engineered for the standards healthcare demands — secure, auditable, and dependable.",
+        title: "Reliable and compliant",
+        body: "Engineered for the standards healthcare demands — secure, auditable, and dependable under load.",
       },
     ],
   },
   {
     slug: "government",
+    index: "04",
     name: "Government",
     nav: "For Government",
-    tagline: "Trusted technology for public service.",
+    tagline: "Technology held to public standards.",
     blurb:
-      "Secure, trusted platforms that help governments serve citizens more effectively.",
+      "Secure platforms that help public institutions serve citizens more effectively.",
     description:
-      "Secure, trusted technology platforms that help governments serve citizens more effectively and make data-driven decisions at scale — with accountability built in.",
-    accent: "from-sky-400 to-blue-300",
-    glow: "rgba(56, 189, 248, 0.32)",
+      "Secure, accountable technology platforms that help governments serve citizens more effectively and make evidence-based decisions at scale — with auditability built in from the start.",
     features: [
       {
         title: "Serve citizens better",
         body: "Modern digital services that meet people where they are and respect their time.",
       },
       {
-        title: "Decisions at scale",
-        body: "Data-driven insight across departments and populations, without compromising privacy.",
+        title: "Evidence at scale",
+        body: "Insight across departments and populations, without compromising individual privacy.",
       },
       {
-        title: "Secure & accountable",
-        body: "Sovereign-grade security and full auditability, designed for the public trust.",
+        title: "Secure and accountable",
+        body: "Sovereign-grade security and full auditability, designed for the standard public trust requires.",
       },
     ],
   },
@@ -118,29 +114,60 @@ export const verticals: Vertical[] = [
 
 export const values = [
   {
+    index: "01",
     name: "Trust",
-    body: "Everything we build must be reliable, secure, and worthy of the institutions that depend on us.",
+    body: "Everything we build must be reliable, secure, and worthy of the institutions that depend on it.",
   },
   {
+    index: "02",
     name: "Excellence",
-    body: "We deliver, always. Our reputation is built on execution.",
+    body: "We deliver, always. Our reputation is built on execution rather than announcement.",
   },
   {
+    index: "03",
     name: "Universality",
-    body: "We build for everyone, not just the privileged few.",
+    body: "We build for everyone, not just the customers who are easiest to reach.",
   },
   {
+    index: "04",
     name: "Permanence",
-    body: "We think in decades, not quarters.",
+    body: "We think in decades, not quarters. Software people rely on has to still be there in ten years.",
   },
   {
+    index: "05",
     name: "Innovation",
-    body: "We are always at the front, always pushing what's possible with AI.",
+    body: "We stay at the front — but we ship what works before we ship what's novel.",
   },
   {
+    index: "06",
     name: "Security",
-    body: "We protect what's entrusted to us — secure by design, for the people and institutions that depend on us.",
+    body: "We protect what's entrusted to us. Secure by design, for the people and institutions behind every record.",
   },
+];
+
+export const ambitions = [
+  {
+    index: "01",
+    text: "Become the most trusted operational software company in Canada, then well beyond it.",
+  },
+  {
+    index: "02",
+    text: "Earn the confidence of the institutions that cannot afford for software to fail.",
+  },
+  {
+    index: "03",
+    text: "Build products so useful to daily operations that going back is unthinkable.",
+  },
+  {
+    index: "04",
+    text: "Grow into a company that outlasts the technologies it was founded on.",
+  },
+];
+
+export const facts = [
+  { term: "Founded", detail: "2026" },
+  { term: "Based in", detail: "Nova Scotia, Canada" },
+  { term: "Practice", detail: "Operational software" },
 ];
 
 export const navLinks = [

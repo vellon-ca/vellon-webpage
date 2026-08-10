@@ -1,18 +1,18 @@
 import { Hero } from "@/components/home/Hero";
-import { VerticalsGrid } from "@/components/home/VerticalsGrid";
+import { VerticalsIndex } from "@/components/home/VerticalsIndex";
 import { Mission } from "@/components/home/Mission";
 import { Values } from "@/components/home/Values";
-import { Goals } from "@/components/home/Goals";
+import { Ambitions } from "@/components/home/Ambitions";
 import { CTA } from "@/components/CTA";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <VerticalsGrid />
+      <VerticalsIndex />
       <Mission />
       <Values />
-      <Goals />
+      <Ambitions />
       <CTA />
     </>
   );

@@ -2,9 +2,33 @@ import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Vellon — AI infrastructure for the modern world";
+export const alt = "Vellon — software for the work underneath";
 
-export default function OpengraphImage() {
+/* Pull the display face so the share card matches the site's identity.
+   Wrapped so a font-fetch hiccup degrades to the system sans instead of
+   failing the build. */
+async function displayFont(): Promise<ArrayBuffer | null> {
+  try {
+    const css = await fetch(
+      "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@144,600&display=swap",
+      // No UA header, so Google hands back a TTF rather than woff2,
+      // which is what ImageResponse can parse.
+      { headers: { "User-Agent": "Mozilla/5.0" } }
+    ).then((r) => r.text());
+
+    const url = css.match(/src:\s*url\(([^)]+)\)\s*format\('(?:truetype|opentype)'\)/)?.[1];
+    if (!url) return null;
+
+    return await fetch(url).then((r) => r.arrayBuffer());
+  } catch {
+    return null;
+  }
+}
+
+export default async function OpengraphImage() {
+  const display = await displayFont();
+  const serif = display ? "Fraunces" : "serif";
+
   return new ImageResponse(
     (
       <div
@@ -13,62 +37,112 @@ export default function OpengraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          padding: "90px",
-          background: "#06070a",
-          backgroundImage:
-            "radial-gradient(circle at 50% 0%, rgba(99,102,241,0.28), transparent 55%)",
+          justifyContent: "space-between",
+          padding: "68px 80px",
+          background: "#F6F3EC",
+          color: "#16150F",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <defs>
-              <linearGradient id="v" x1="16" y1="16" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#818cf8" />
-                <stop offset="1" stopColor="#22d3ee" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M18 19 L32 45 L46 19"
-              stroke="url(#v)"
-              strokeWidth="5.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+        {/* Masthead */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            borderBottom: "1px solid rgba(22,21,15,0.18)",
+            paddingBottom: 24,
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
+            <span
+              style={{
+                fontFamily: serif,
+                fontSize: 36,
+                letterSpacing: "-0.03em",
+              }}
+            >
+              Vellon
+            </span>
+            <span
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: 999,
+                background: "#A6401A",
+                display: "flex",
+              }}
             />
-            <circle cx="32" cy="45" r="3.2" fill="url(#v)" />
-          </svg>
-          <span style={{ fontSize: 40, fontWeight: 600, color: "#ffffff" }}>
-            Vellon
+          </div>
+          <span
+            style={{
+              fontSize: 16,
+              letterSpacing: "0.16em",
+              color: "#7a776c",
+              fontWeight: 600,
+            }}
+          >
+            NOVA SCOTIA, CANADA
           </span>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            fontSize: 76,
-            fontWeight: 600,
-            color: "#ffffff",
-            lineHeight: 1.1,
-            marginTop: 44,
-            letterSpacing: "-0.03em",
-          }}
-        >
-          AI infrastructure for the modern world.
+        {/* Headline */}
+        <div style={{ display: "flex", flexDirection: "column", marginTop: 8 }}>
+          <div
+            style={{
+              display: "flex",
+              fontFamily: serif,
+              fontSize: 94,
+              lineHeight: 1.02,
+              letterSpacing: "-0.025em",
+            }}
+          >
+            Software that runs
+          </div>
+          <div
+            style={{
+              display: "flex",
+              fontFamily: serif,
+              fontSize: 94,
+              lineHeight: 1.02,
+              letterSpacing: "-0.025em",
+            }}
+          >
+            the work&nbsp;
+            <span style={{ color: "#A6401A" }}>underneath</span>.
+          </div>
         </div>
 
+        {/* Footer rule */}
         <div
           style={{
             display: "flex",
-            fontSize: 30,
-            color: "#8a8f98",
-            marginTop: 28,
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            borderTop: "1px solid rgba(22,21,15,0.18)",
+            paddingTop: 22,
           }}
         >
-          Intelligent software for individuals, enterprises, healthcare, and
-          governments.
+          <span
+            style={{
+              fontSize: 24,
+              color: "#46443c",
+              maxWidth: 760,
+              display: "flex",
+            }}
+          >
+            Operational software for the organisations that keep things moving.
+          </span>
+          <span style={{ fontSize: 21, color: "#7a776c", display: "flex" }}>
+            vellon.ca
+          </span>
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: display
+        ? [{ name: "Fraunces", data: display, style: "normal", weight: 600 }]
+        : [],
+    }
   );
 }

@@ -8,11 +8,13 @@ export const metadata: Metadata = {
 
 export default function SignInPage() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-32 pb-20">
-      <div className="pointer-events-none absolute inset-0 grid-bg" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[700px] -translate-x-1/2 glow" />
-      <div className="relative flex w-full justify-center">
-        <SignInForm />
+    <section className="grain relative flex min-h-[85vh] items-center overflow-hidden px-6 pt-32 pb-24 md:px-10">
+      <div className="mx-auto w-full max-w-[86rem]">
+        <div className="grid grid-cols-12">
+          <div className="col-span-12 md:col-span-5 md:col-start-4">
+            <SignInForm />
+          </div>
+        </div>
       </div>
     </section>
   );

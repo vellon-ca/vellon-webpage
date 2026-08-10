@@ -1,85 +1,85 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-
-const ease = [0.21, 0.47, 0.32, 0.98] as const;
+import { motion, useReducedMotion } from "framer-motion";
+import { facts } from "@/lib/site";
+import { ease } from "../Reveal";
 
 export function Hero() {
+  const still = useReducedMotion();
+  /* With reduced motion we hand the settled state straight to the DOM. */
+  const rise = (delay = 0, y = 18) => ({
+    initial: { opacity: 0, y },
+    animate: { opacity: 1, y: 0 },
+    transition: still ? { duration: 0 } : { duration: 1, delay, ease },
+  });
+
   return (
-    <section className="relative overflow-hidden pt-40 pb-24 md:pt-52 md:pb-32">
-      {/* Background layers */}
-      <div className="pointer-events-none absolute inset-0 grid-bg" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[820px] -translate-x-1/2 glow" />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-32 h-[420px] w-[420px] -translate-x-1/2 rounded-full"
-        style={{
-          background:
-            "conic-gradient(from 90deg, rgba(99,102,241,0.0), rgba(99,102,241,0.25), rgba(34,211,238,0.18), rgba(99,102,241,0.0))",
-          filter: "blur(60px)",
-        }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-      />
+    <section className="grain relative overflow-hidden pt-36 pb-16 md:pt-48 md:pb-20">
+      <div className="mx-auto max-w-[86rem] px-6 md:px-10">
+        {/* Headline sits left, metadata rail sits right — deliberately off-centre */}
+        <div className="grid grid-cols-12 gap-y-10">
+          <motion.h1
+            {...rise(0)}
+            className="display display-xl col-span-12 lg:col-span-9"
+          >
+            Software that runs
+            <br />
+            the work <span className="text-accent">underneath</span>.
+          </motion.h1>
 
-      <div className="relative mx-auto max-w-4xl px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface/60 px-3.5 py-1.5 text-xs text-muted backdrop-blur"
-        >
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          </span>
-          AI-first technology company · Early stage
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.05, ease }}
-          className="text-balance text-5xl font-semibold leading-[1.05] tracking-tight text-white md:text-7xl"
-        >
-          <span className="text-gradient">AI infrastructure for</span>
-          <br />
-          <span className="text-gradient-accent">the modern world.</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15, ease }}
-          className="mx-auto mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-muted md:text-xl"
-        >
-          Vellon builds intelligent software for individuals, enterprises,
-          healthcare systems, and governments. Not a single tool — infrastructure
-          the world can rely on.
-        </motion.p>
+          <motion.dl
+            {...rise(0.35, 0)}
+            className="col-span-12 self-end lg:col-span-3 lg:pb-2"
+          >
+            {facts.map((f) => (
+              <div
+                key={f.term}
+                className="flex items-baseline justify-between border-t border-rule py-2.5"
+              >
+                <dt className="label">{f.term}</dt>
+                <dd className="text-[0.8125rem] text-ink-2">{f.detail}</dd>
+              </div>
+            ))}
+          </motion.dl>
+        </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25, ease }}
-          className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={still ? { duration: 0 } : { duration: 1.3, delay: 0.2, ease }}
+          style={{ transformOrigin: "left" }}
+          className="mt-10 h-px w-full bg-rule md:mt-14"
+        />
+
+        {/* The lede is indented into the grid rather than centred under the title */}
+        <motion.div
+          {...rise(0.45, 14)}
+          className="grid grid-cols-12 gap-y-8 pt-8 md:pt-10"
         >
-          <Link
-            href="/contact"
-            className="group w-full rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-[1.03] sm:w-auto"
-          >
-            Get in touch
-            <span className="ml-1.5 inline-block transition-transform group-hover:translate-x-0.5">
-              →
-            </span>
-          </Link>
-          <Link
-            href="/about"
-            className="w-full rounded-full border border-border-strong bg-surface/40 px-6 py-3 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-surface sm:w-auto"
-          >
-            Our mission
-          </Link>
+          <p className="lede col-span-12 max-w-[38ch] text-pretty md:col-span-7 md:col-start-4 lg:col-span-5 lg:col-start-4">
+            Vellon builds the operational software organisations depend on but
+            rarely think about — dispatch, records, scheduling, settlement. The
+            layer underneath the work.
+          </p>
+
+          <div className="col-span-12 flex flex-wrap items-start gap-x-8 gap-y-4 md:col-span-3 md:col-start-10 md:justify-end lg:col-span-3 lg:col-start-10">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-sm font-semibold text-ink"
+            >
+              Get in touch
+              <span className="transition-transform duration-400 group-hover:translate-x-1">
+                &rarr;
+              </span>
+            </Link>
+            <Link
+              href="/about"
+              className="link-draw text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+            >
+              Our mission
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>

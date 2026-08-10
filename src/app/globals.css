@@ -1,131 +1,245 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------
+   Vellon — editorial system
+   Warm paper, ink type, one oxide accent. Structure comes from
+   hairline rules and an asymmetric grid, never from cards or glows.
+   ------------------------------------------------------------------ */
+
 :root {
-  --background: #06070a;
-  --surface: #0b0d12;
-  --surface-2: #11141b;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-  --foreground: #ededed;
-  --muted: #8a8f98;
-  --muted-2: #5c616b;
-  --accent: #6366f1;
-  --accent-2: #22d3ee;
+  /* Surfaces */
+  --paper: #f6f3ec;
+  --paper-2: #efeadf;
+  --paper-3: #e7e1d4;
+
+  /* Ink */
+  --ink: #16150f;
+  --ink-2: #46443c;
+  --ink-3: #7a776c;
+
+  /* Rules */
+  --rule: rgba(22, 21, 15, 0.16);
+  --rule-soft: rgba(22, 21, 15, 0.09);
+
+  /* One accent — an oxide cousin of the product orange */
+  --accent: #a6401a;
+  --accent-deep: #7f2f11;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-2: var(--muted-2);
-  --color-border: var(--border);
-  --color-border-strong: var(--border-strong);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-rule-soft: var(--rule-soft);
   --color-accent: var(--accent);
-  --color-accent-2: var(--accent-2);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent-deep: var(--accent-deep);
+
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-fraunces);
 }
 
 * {
-  border-color: var(--border);
+  border-color: var(--rule);
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-feature-settings: "kern", "liga", "calt";
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.35);
-  color: #fff;
+  background: var(--accent);
+  color: var(--paper);
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-::-webkit-scrollbar-thumb {
-  background: #1c2029;
-  border-radius: 999px;
-  border: 2px solid var(--background);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #2a2f3a;
+/* ---------- Type ---------- */
+
+.display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  line-height: 0.98;
 }
 
-/* Utility: animated gradient text */
-.text-gradient {
-  background: linear-gradient(110deg, #fff 35%, #8a8f98 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Big display headline — deliberately large jump away from body copy */
+.display-xl {
+  font-size: clamp(2.9rem, 7.4vw, 6.4rem);
+}
+.display-lg {
+  font-size: clamp(2.3rem, 5vw, 4.1rem);
+}
+.display-md {
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1.06;
 }
 
-.text-gradient-accent {
-  background: linear-gradient(110deg, #818cf8 0%, #22d3ee 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Small metadata label — the only place tracking is used */
+.label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
 }
 
-/* Grid background */
-.grid-bg {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+.lede {
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--ink-2);
 }
 
-/* Glow */
-.glow {
-  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.25) 0%, transparent 60%);
+/* Small index numerals are navigation, so they are set in the sans.
+   Fraunces has a flat-topped 3 with hairline joins that reads as a 5 at
+   12–14px — fine as a flourish, not fine as a list marker. */
+.numeral {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: 0.08em;
 }
 
-/* Conic border for cards */
-.card-glow {
-  position: relative;
+/* Large standalone numerals are big enough for the display cut to hold up */
+.numeral-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
-.card-glow::before {
+
+/* Drop cap for the opening paragraph of a text page */
+.dropcap::first-letter {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
+  float: left;
+  font-size: 3.9em;
+  line-height: 0.82;
+  padding-right: 0.09em;
+  margin-top: 0.04em;
+  color: var(--accent);
+}
+
+/* ---------- Structure ---------- */
+
+/* Paper grain — a whisper of texture so flat areas don't read as digital flat */
+.grain::after {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(130deg, rgba(255, 255, 255, 0.14), transparent 40%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
   pointer-events: none;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* Link with an underline that draws in from the left */
+.link-draw {
+  position: relative;
+  display: inline-block;
 }
-.animate-marquee {
-  animation: marquee 32s linear infinite;
+.link-draw::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.42s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.link-draw:hover::after {
+  transform: scaleX(1);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+/* Index row — hairline separated, hover reveals the accent rule */
+.index-row {
+  position: relative;
+  transition: background-color 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.index-row::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 1px;
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.index-row:hover::after {
+  transform: scaleX(1);
 }
 
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+/* Inputs: a ruled line, like a printed form — not a boxed field */
+.field-line {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 0.6rem 0;
+  font-size: 0.975rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.field-line::placeholder {
+  color: var(--ink-3);
+}
+.field-line:focus {
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Scrollbar ----------
+   Chromium 121+ lets scrollbar-width/color win over ::-webkit-scrollbar,
+   so the standard properties are scoped to Firefox and Chromium keeps
+   the webkit rules. */
+@supports (-moz-appearance: none) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ink-3) var(--paper-2);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper-2);
+}
+::-webkit-scrollbar-thumb {
+  background: #c3bcac;
+  border: 3px solid var(--paper-2);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

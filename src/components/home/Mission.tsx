@@ -1,54 +1,39 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { Reveal } from "../Reveal";
 
 export function Mission() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.3]);
-
-  const words =
-    "We believe the most important technology company of the next century won't be the one that built the smartest model — it will be the one that made AI work for everyone, everywhere, at every scale.".split(
-      " "
-    );
-
   return (
     <section
-      ref={ref}
       id="mission"
-      className="relative overflow-hidden border-y border-border py-32 md:py-44"
+      className="grain relative overflow-hidden border-y border-rule bg-paper-2 py-24 md:py-36"
     >
-      <motion.div
-        style={{ y }}
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[900px] -translate-x-1/2 -translate-y-1/2 glow opacity-60"
-      />
-      <motion.div style={{ opacity }} className="relative mx-auto max-w-4xl px-6">
-        <p className="mb-8 text-center text-sm font-medium uppercase tracking-widest text-accent">
-          Why Vellon
-        </p>
-        <p className="text-center text-2xl font-medium leading-snug tracking-tight text-white md:text-4xl md:leading-snug">
-          {words.map((word, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0.15 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: false, margin: "-30% 0px -30% 0px" }}
-              transition={{ duration: 0.4, delay: i * 0.015 }}
-              className="inline-block"
+      <div className="mx-auto max-w-[86rem] px-6 md:px-10">
+        <div className="grid grid-cols-12 gap-y-8">
+          <Reveal className="col-span-12 md:col-span-2">
+            <p className="label">Why Vellon</p>
+          </Reveal>
+
+          {/* Quote hangs off-axis, starting at column four */}
+          <Reveal delay={0.1} className="relative col-span-12 md:col-span-9 md:col-start-4">
+            <span
+              aria-hidden
+              className="display pointer-events-none absolute -left-2 -top-10 select-none text-[7rem] leading-none text-accent/18 md:-left-11 md:-top-8 md:text-[9rem]"
             >
-              {word}&nbsp;
-            </motion.span>
-          ))}
-        </p>
-        <p className="mt-12 text-center text-xl font-semibold text-gradient-accent">
-          That company is Vellon.
-        </p>
-      </motion.div>
+              &ldquo;
+            </span>
+            <blockquote className="display relative text-[clamp(1.5rem,2.9vw,2.55rem)] leading-[1.22] text-ink">
+              The company that matters most over the next century won&rsquo;t be
+              the one with the cleverest technology. It will be the one whose
+              software the world quietly runs on.
+            </blockquote>
+            <div className="mt-9 flex items-center gap-4">
+              <span aria-hidden className="h-px w-10 bg-accent" />
+              <p className="label !text-ink-2">That is the company we&rsquo;re building</p>
+            </div>
+          </Reveal>
+        </div>
+      </div>
     </section>
   );
 }

@@ -1,69 +1,83 @@
 import Link from "next/link";
-import { Logo } from "./Logo";
 import { verticals } from "@/lib/site";
 
 const company = [
   { label: "About", href: "/about" },
   { label: "Mission", href: "/about#mission" },
   { label: "Contact", href: "/contact" },
+  { label: "Sign in", href: "/signin" },
 ];
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border bg-surface/40">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:py-20">
-        <div className="space-y-5">
-          <Logo />
-          <p className="max-w-xs text-sm leading-relaxed text-muted">
-            AI infrastructure for the modern world. Built for permanence, not
-            relevance.
+    <footer className="relative border-t border-rule bg-paper">
+      <div className="mx-auto max-w-[86rem] px-6 md:px-10">
+        <div className="grid grid-cols-12 gap-x-8 gap-y-12 py-16 md:py-20">
+          <div className="col-span-12 md:col-span-5">
+            <p className="display max-w-[18ch] text-[1.6rem] leading-[1.2]">
+              Software for the work underneath.
+            </p>
+            <p className="mt-6 max-w-[30ch] text-sm leading-relaxed text-ink-2">
+              Built for permanence, not relevance.
+            </p>
+          </div>
+
+          <div className="col-span-6 md:col-span-3 md:col-start-7">
+            <h4 className="label">Practice</h4>
+            <ul className="mt-5 space-y-3">
+              {verticals.map((v) => (
+                <li key={v.slug}>
+                  <Link
+                    href={`/${v.slug}`}
+                    className="link-draw text-sm text-ink-2 transition-colors hover:text-ink"
+                  >
+                    {v.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="col-span-6 md:col-span-2 md:col-start-11">
+            <h4 className="label">Company</h4>
+            <ul className="mt-5 space-y-3">
+              {company.map((c) => (
+                <li key={c.href}>
+                  <Link
+                    href={c.href}
+                    className="link-draw text-sm text-ink-2 transition-colors hover:text-ink"
+                  >
+                    {c.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Oversized wordmark as a signature, clipped by the page edge */}
+        <div className="relative overflow-hidden border-t border-rule pt-10">
+          <p
+            aria-hidden
+            className="display select-none text-[clamp(4rem,18vw,15rem)] leading-[0.82] text-ink/[0.07]"
+            style={{ letterSpacing: "-0.045em" }}
+          >
+            Vellon
           </p>
-          <p className="text-xs text-muted-2">
-            Headquarters · Canada 🇨🇦
+        </div>
+
+        <div className="flex flex-col items-start justify-between gap-3 border-t border-rule py-6 text-xs text-ink-3 sm:flex-row sm:items-center">
+          <p>&copy; {new Date().getFullYear()} Vellon. All rights reserved.</p>
+          <p className="flex items-center gap-4">
+            <span>Nova Scotia, Canada</span>
+            <span aria-hidden className="h-3 w-px bg-rule" />
+            <a
+              href="mailto:hello@vellon.ca"
+              className="link-draw transition-colors hover:text-ink"
+            >
+              hello@vellon.ca
+            </a>
           </p>
-        </div>
-
-        <div>
-          <h4 className="mb-4 text-xs font-medium uppercase tracking-widest text-muted-2">
-            Solutions
-          </h4>
-          <ul className="space-y-3">
-            {verticals.map((v) => (
-              <li key={v.slug}>
-                <Link
-                  href={`/${v.slug}`}
-                  className="text-sm text-muted transition-colors hover:text-white"
-                >
-                  {v.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="mb-4 text-xs font-medium uppercase tracking-widest text-muted-2">
-            Company
-          </h4>
-          <ul className="space-y-3">
-            {company.map((c) => (
-              <li key={c.href}>
-                <Link
-                  href={c.href}
-                  className="text-sm text-muted transition-colors hover:text-white"
-                >
-                  {c.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-muted-2 sm:flex-row">
-          <p>© {new Date().getFullYear()} Vellon. All rights reserved.</p>
-          <p className="font-mono tracking-tight">vellon.ca</p>
         </div>
       </div>
     </footer>

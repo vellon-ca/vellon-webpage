@@ -1,7 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+
+/* Motion is deliberately restrained: a short lift and fade, one easing
+   curve, used on section openings only — not on every element.
+
+   Reduced motion is honoured by collapsing the transition to zero rather
+   than by rendering a different element. The tree must stay identical
+   between server and client or hydration mismatches leave nodes stuck at
+   opacity 0. */
+export const ease = [0.22, 0.61, 0.36, 1] as const;
 
 type RevealProps = {
   children: ReactNode;
@@ -15,16 +24,20 @@ export function Reveal({
   children,
   className,
   delay = 0,
-  y = 24,
+  y = 12,
   once = true,
 }: RevealProps) {
+  const still = useReducedMotion();
+
   return (
     <motion.div
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: "-80px" }}
-      transition={{ duration: 0.7, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+      viewport={{ once, margin: "-70px" }}
+      transition={
+        still ? { duration: 0 } : { duration: 0.85, delay, ease }
+      }
     >
       {children}
     </motion.div>
@@ -42,18 +55,22 @@ export function Stagger({
   children,
   className,
   delayChildren = 0,
-  stagger = 0.1,
+  stagger = 0.07,
 }: StaggerProps) {
+  const still = useReducedMotion();
+
   return (
     <motion.div
       className={className}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-70px" }}
       variants={{
         hidden: {},
         show: {
-          transition: { staggerChildren: stagger, delayChildren },
+          transition: still
+            ? { staggerChildren: 0, delayChildren: 0 }
+            : { staggerChildren: stagger, delayChildren },
         },
       }}
     >
@@ -65,12 +82,14 @@ export function Stagger({
 export function StaggerItem({
   children,
   className,
-  y = 20,
+  y = 10,
 }: {
   children: ReactNode;
   className?: string;
   y?: number;
 }) {
+  const still = useReducedMotion();
+
   return (
     <motion.div
       className={className}
@@ -79,7 +98,7 @@ export function StaggerItem({
         show: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] },
+          transition: still ? { duration: 0 } : { duration: 0.75, ease },
         },
       }}
     >

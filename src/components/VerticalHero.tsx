@@ -1,59 +1,67 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { Vertical } from "@/lib/site";
-
-const ease = [0.21, 0.47, 0.32, 0.98] as const;
+import { ease } from "./Reveal";
 
 export function VerticalHero({ vertical }: { vertical: Vertical }) {
+  const still = useReducedMotion();
+  const rise = (delay = 0, y = 16) => ({
+    initial: { opacity: 0, y },
+    animate: { opacity: 1, y: 0 },
+    transition: still ? { duration: 0 } : { duration: 1, delay, ease },
+  });
+
   return (
-    <section className="relative overflow-hidden pt-40 pb-20 md:pt-52 md:pb-28">
-      <div className="pointer-events-none absolute inset-0 grid-bg" />
-      <div
-        className="pointer-events-none absolute left-1/2 top-10 h-[480px] w-[760px] -translate-x-1/2 rounded-full blur-3xl"
-        style={{ background: `radial-gradient(circle at center, ${vertical.glow}, transparent 60%)` }}
-      />
-      <div className="relative mx-auto max-w-4xl px-6 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease }}
-          className={`mb-5 inline-block rounded-full border border-border-strong bg-surface/60 bg-gradient-to-r px-4 py-1.5 text-sm font-medium ${vertical.accent} bg-clip-text text-transparent backdrop-blur`}
-        >
-          For {vertical.name}
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.05, ease }}
-          className="text-balance text-5xl font-semibold leading-[1.05] tracking-tight text-white md:text-6xl"
-        >
-          {vertical.tagline}
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15, ease }}
-          className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted md:text-xl"
-        >
-          {vertical.description}
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25, ease }}
-          className="mt-9"
-        >
-          <Link
-            href="/contact"
-            className="group inline-block rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-[1.03]"
+    <section className="grain relative overflow-hidden pt-36 pb-14 md:pt-48 md:pb-20">
+      <div className="mx-auto max-w-[86rem] px-6 md:px-10">
+        <div className="grid grid-cols-12 gap-x-6 gap-y-6">
+          {/* The index numeral is used as a graphic element, not decoration */}
+          <motion.span
+            aria-hidden
+            {...rise(0, 0)}
+            className="numeral numeral-display col-span-12 select-none text-[clamp(3.5rem,7vw,6.5rem)] leading-[0.8] text-ink/12 md:col-span-2"
           >
-            Talk to us
-            <span className="ml-1.5 inline-block transition-transform group-hover:translate-x-0.5">
-              →
-            </span>
-          </Link>
+            {vertical.index}
+          </motion.span>
+
+          <div className="col-span-12 md:col-span-10 md:col-start-3">
+            <motion.p {...rise(0.05, 0)} className="label !text-accent">
+              For {vertical.name}
+            </motion.p>
+            <motion.h1
+              {...rise(0.1)}
+              className="display mt-5 max-w-[16ch] text-balance text-[clamp(2.4rem,5.6vw,4.8rem)]"
+            >
+              {vertical.tagline}
+            </motion.h1>
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={still ? { duration: 0 } : { duration: 1.2, delay: 0.25, ease }}
+          style={{ transformOrigin: "left" }}
+          className="mt-12 h-px w-full bg-rule md:mt-14"
+        />
+
+        <motion.div {...rise(0.4, 12)} className="grid grid-cols-12 gap-y-7 pt-8">
+          <p className="lede col-span-12 max-w-[52ch] text-pretty md:col-span-6 md:col-start-3">
+            {vertical.description}
+          </p>
+          <div className="col-span-12 md:col-span-3 md:col-start-10 md:justify-self-end">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-sm font-semibold text-ink"
+            >
+              Talk to us
+              <span className="transition-transform duration-400 group-hover:translate-x-1">
+                &rarr;
+              </span>
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>

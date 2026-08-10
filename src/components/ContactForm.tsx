@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { sendContact } from "@/lib/actions";
 
 const segments = ["Individual", "Enterprise", "Healthcare", "Government"];
+const ease = [0.22, 0.61, 0.36, 1] as const;
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -26,90 +27,93 @@ export function ContactForm() {
         setError(result.error);
       }
     } catch {
-      setError("Something went wrong. Please try again or email hello@vellon.ca.");
+      setError(
+        "Something went wrong. Please try again or email hello@vellon.ca."
+      );
     } finally {
       setPending(false);
     }
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className="card-glow relative rounded-3xl border border-border bg-surface/60 p-7 md:p-8"
-    >
+    <div className="border-t border-ink/25 pt-8">
       <AnimatePresence mode="wait">
         {submitted ? (
           <motion.div
             key="done"
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="flex min-h-[360px] flex-col items-center justify-center text-center"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease }}
+            className="flex min-h-[380px] flex-col justify-center"
           >
-            <div className="grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-indigo-400 to-cyan-300 text-2xl text-black">
-              ✓
-            </div>
-            <h3 className="mt-5 text-xl font-semibold text-white">
-              Message received
+            <span className="numeral text-sm text-accent">&mdash;</span>
+            <h3 className="display mt-4 text-[1.9rem] leading-tight">
+              Message received.
             </h3>
-            <p className="mt-2 max-w-xs text-sm text-muted">
-              Thank you for reaching out. We&apos;ll be in touch soon.
+            <p className="mt-4 max-w-[36ch] text-pretty text-[0.9375rem] leading-relaxed text-ink-2">
+              Thank you for reaching out. We&rsquo;ll come back to you within two
+              business days.
             </p>
           </motion.div>
         ) : (
           <motion.form
             key="form"
             onSubmit={handleSubmit}
-            initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="space-y-5"
+            className="space-y-9"
           >
-            <div>
-              <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-muted-2">
-                I&apos;m reaching out as
-              </label>
-              <div className="grid grid-cols-2 gap-2">
+            <fieldset>
+              <legend className="label mb-4">I&rsquo;m reaching out as</legend>
+              <div className="flex flex-wrap gap-x-6 gap-y-3">
                 {segments.map((s) => (
                   <button
                     key={s}
                     type="button"
                     onClick={() => setSegment(s)}
-                    className={`rounded-lg border px-3 py-2 text-sm transition-colors ${
+                    aria-pressed={segment === s}
+                    className={`border-b pb-1 text-sm transition-colors ${
                       segment === s
-                        ? "border-border-strong bg-surface-2 text-white"
-                        : "border-border bg-transparent text-muted hover:text-white"
+                        ? "border-accent font-semibold text-accent"
+                        : "border-transparent text-ink-3 hover:border-rule hover:text-ink"
                     }`}
                   >
                     {s}
                   </button>
                 ))}
               </div>
+            </fieldset>
+
+            <div className="grid gap-9 sm:grid-cols-2">
+              <Field label="Name" name="name" placeholder="Jane Doe" />
+              <Field
+                label="Email"
+                name="email"
+                type="email"
+                placeholder="jane@company.com"
+              />
             </div>
 
-            <Field label="Name" name="name" placeholder="Jane Doe" />
             <Field
-              label="Email"
-              name="email"
-              type="email"
-              placeholder="jane@company.com"
-            />
-            <Field
-              label="Organization"
+              label="Organisation"
               name="org"
               placeholder="Optional"
               required={false}
             />
+
             <div>
-              <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-muted-2">
+              <label
+                htmlFor="message"
+                className="label mb-2 block"
+              >
                 Message
               </label>
               <textarea
+                id="message"
                 name="message"
                 required
                 rows={4}
                 placeholder="Tell us what you're working on…"
-                className="w-full resize-none rounded-lg border border-border bg-background/60 px-3.5 py-2.5 text-sm text-white outline-none transition-colors placeholder:text-muted-2 focus:border-border-strong"
+                className="field-line resize-none"
               />
             </div>
 
@@ -124,7 +128,7 @@ export function ContactForm() {
             />
 
             {error && (
-              <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-3.5 py-2.5 text-sm text-red-300">
+              <p className="border-l-2 border-accent bg-accent/6 px-4 py-3 text-sm text-accent-deep">
                 {error}
               </p>
             )}
@@ -132,19 +136,19 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={pending}
-              className="group w-full rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60"
+              className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-sm font-semibold text-ink transition-opacity disabled:cursor-not-allowed disabled:opacity-50"
             >
               {pending ? "Sending…" : "Send message"}
               {!pending && (
-                <span className="ml-1.5 inline-block transition-transform group-hover:translate-x-0.5">
-                  →
+                <span className="transition-transform duration-400 group-hover:translate-x-1">
+                  &rarr;
                 </span>
               )}
             </button>
           </motion.form>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }
 
@@ -163,15 +167,16 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-muted-2">
+      <label htmlFor={name} className="label mb-2 block">
         {label}
       </label>
       <input
+        id={name}
         type={type}
         name={name}
         required={required}
         placeholder={placeholder}
-        className="w-full rounded-lg border border-border bg-background/60 px-3.5 py-2.5 text-sm text-white outline-none transition-colors placeholder:text-muted-2 focus:border-border-strong"
+        className="field-line"
       />
     </div>
   );

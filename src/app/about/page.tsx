@@ -2,98 +2,120 @@ import type { Metadata } from "next";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
 import { Values } from "@/components/home/Values";
 import { CTA } from "@/components/CTA";
+import { facts } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Vellon is a global AI-first technology company built to serve everyone — infrastructure for the modern world.",
+    "Vellon builds operational software for the organisations that keep things moving — from individuals to enterprises, healthcare systems and government.",
 };
+
+const beliefs = [
+  {
+    index: "01",
+    title: "Most software is built for one room",
+    body: "One market, one user, one problem. That is a reasonable way to start a company and a poor way to build infrastructure. The systems people actually depend on have to work in rooms their authors never visited.",
+  },
+  {
+    index: "02",
+    title: "Reliability is the product",
+    body: "A dispatcher at six in the morning does not care which model is underneath. They care that the screen loads, the record is right, and the thing they clicked yesterday still works today. Everything else is downstream of that.",
+  },
+  {
+    index: "03",
+    title: "Permanence over relevance",
+    body: "We are building a company meant to outlast the technologies it was founded on. That means shipping less, changing carefully, and treating every migration as something a real business has to live through.",
+  },
+];
 
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden pt-40 pb-16 md:pt-52 md:pb-24">
-        <div className="pointer-events-none absolute inset-0 grid-bg" />
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[460px] w-[760px] -translate-x-1/2 glow" />
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
+      <section className="grain relative overflow-hidden pt-36 pb-14 md:pt-48 md:pb-20">
+        <div className="mx-auto max-w-[86rem] px-6 md:px-10">
           <Reveal>
-            <p className="mb-5 text-sm font-medium uppercase tracking-widest text-accent">
-              Who we are
-            </p>
-            <h1 className="text-balance text-5xl font-semibold leading-[1.05] tracking-tight text-white md:text-6xl">
-              <span className="text-gradient">
-                Infrastructure for the modern world
-              </span>
+            <p className="label">Company</p>
+            <h1 className="display display-xl mt-6 max-w-[13ch] text-balance">
+              A company built to be depended on.
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-muted md:text-xl">
-              Vellon is a global AI-first technology company built to serve
-              everyone. From individuals to enterprises, healthcare systems to
-              governments — we deliver intelligent software that solves real
-              problems at every level of society.
+          </Reveal>
+
+          <div className="mt-12 h-px w-full bg-rule md:mt-16" />
+
+          <Reveal delay={0.1} className="grid grid-cols-12 gap-y-8 pt-8">
+            <p className="lede dropcap col-span-12 max-w-[56ch] text-pretty md:col-span-6 md:col-start-4">
+              Vellon builds operational software — the layer underneath the work
+              that organisations run on but rarely think about. Dispatch,
+              records, scheduling, settlement. The unglamorous systems that
+              decide whether a Tuesday goes smoothly or falls apart.
             </p>
+            <dl className="col-span-12 md:col-span-2 md:col-start-11">
+              {facts.map((f) => (
+                <div
+                  key={f.term}
+                  className="border-t border-rule py-2.5 first:border-t-0 md:first:border-t"
+                >
+                  <dt className="label">{f.term}</dt>
+                  <dd className="mt-1 text-[0.8125rem] text-ink-2">
+                    {f.detail}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
         </div>
       </section>
 
-      <section id="mission" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <div className="grid gap-5 md:grid-cols-2">
-          <Reveal className="card-glow relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-9">
-            <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
-            <h2 className="text-sm font-medium uppercase tracking-widest text-accent">
-              Our mission
-            </h2>
-            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-white md:text-3xl">
-              To build technology that the world can rely on — across every
-              sector, every border, and every generation.
-            </p>
-          </Reveal>
-          <Reveal
-            delay={0.1}
-            className="card-glow relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-9"
-          >
-            <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent-2/20 blur-3xl" />
-            <h2 className="text-sm font-medium uppercase tracking-widest text-accent-2">
-              Our vision
-            </h2>
-            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-white md:text-3xl">
-              A future where Vellon is woven into the fabric of how the world
-              operates — not just used, but depended upon.
-            </p>
-          </Reveal>
+      <section
+        id="mission"
+        className="grain relative overflow-hidden border-y border-rule bg-paper-2 py-20 md:py-28"
+      >
+        <div className="mx-auto max-w-[86rem] px-6 md:px-10">
+          <div className="grid grid-cols-12 gap-x-10 gap-y-12">
+            <Reveal className="col-span-12 md:col-span-6">
+              <p className="label !text-accent">Mission</p>
+              <p className="display mt-6 max-w-[20ch] text-[clamp(1.4rem,2.5vw,2.15rem)] leading-[1.24]">
+                To build technology the world can rely on — across every sector,
+                every border, and every generation.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1} className="col-span-12 md:col-span-5 md:col-start-8">
+              <p className="label !text-accent">Vision</p>
+              <p className="display mt-6 max-w-[20ch] text-[clamp(1.4rem,2.5vw,2.15rem)] leading-[1.24]">
+                A future where Vellon is woven into how the world operates — not
+                just used, but depended upon.
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      <section className="border-y border-border bg-surface/30 py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-6">
-          <Reveal>
-            <h2 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              The world is at an inflection point
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-[86rem] px-6 md:px-10">
+          <Reveal className="grid grid-cols-12 gap-y-5 pb-10 md:pb-14">
+            <p className="label col-span-12 md:col-span-3">What we believe</p>
+            <h2 className="display display-lg col-span-12 max-w-[18ch] md:col-span-7 md:col-start-4">
+              The world is at an inflection point.
             </h2>
           </Reveal>
-          <Stagger className="mt-8 space-y-6" stagger={0.12}>
-            {[
-              "AI is reshaping every industry simultaneously. Most companies are building for one market, one user, one problem. Vellon is built for all of them.",
-              "We believe the most important technology company of the next century won't be the one that built the smartest model — it will be the one that made AI work for everyone, everywhere, at every scale.",
-              "We are building for permanence, not relevance. A generational company that outlasts trends, technologies, and market cycles.",
-            ].map((p) => (
-              <StaggerItem key={p}>
-                <p className="text-lg leading-relaxed text-muted">{p}</p>
+
+          <Stagger className="border-t border-rule">
+            {beliefs.map((b) => (
+              <StaggerItem key={b.index}>
+                <div className="grid grid-cols-12 gap-x-6 gap-y-3 border-b border-rule py-8 md:py-11">
+                  <span className="numeral col-span-2 text-sm text-accent md:col-span-1">
+                    {b.index}
+                  </span>
+                  <h3 className="display col-span-10 max-w-[18ch] text-[clamp(1.2rem,1.9vw,1.7rem)] leading-tight md:col-span-4">
+                    {b.title}
+                  </h3>
+                  <p className="col-span-12 col-start-1 max-w-[54ch] text-pretty text-[0.9375rem] leading-relaxed text-ink-2 md:col-span-6 md:col-start-6">
+                    {b.body}
+                  </p>
+                </div>
               </StaggerItem>
             ))}
           </Stagger>
-          <Reveal delay={0.2}>
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-border pt-8 font-mono text-sm text-muted-2">
-              <span>
-                <span className="text-white">Headquarters</span> · Canada
-              </span>
-              <span>
-                <span className="text-white">Sector</span> · AI &amp; Technology
-              </span>
-              <span>
-                <span className="text-white">Stage</span> · Early stage
-              </span>
-            </div>
-          </Reveal>
         </div>
       </section>
 
