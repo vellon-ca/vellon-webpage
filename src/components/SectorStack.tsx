@@ -250,6 +250,33 @@ export function SectorStack({ className = "" }: { className?: string }) {
                 >
                   {p.index}
                 </text>
+
+                {/* Spec callout: the selected plate's feature titles, taken
+                    from its own page. Kept in fg-2, not brass — brass marks
+                    which row is selected, and four brass lines would stop
+                    that reading as a single signal. Rendered at all times at
+                    zero opacity rather than mounted on hover, so there's no
+                    layout or paint work in the interaction. The stagger is a
+                    per-line transition-delay that collapses to 0s on the way
+                    out, so leaving is immediate rather than a slow unwind. */}
+                {p.features.map((f, k) => (
+                  <text
+                    key={f.title}
+                    x={LABEL_X}
+                    y={p.y + 18 + k * 12}
+                    {...MONO}
+                    fontSize={9}
+                    fill="var(--fg-2)"
+                    opacity={on ? 0.85 : 0}
+                    style={{
+                      transform: on ? "translateX(0px)" : "translateX(-5px)",
+                      transition: "opacity .3s ease, transform .4s ease",
+                      transitionDelay: on ? `${0.08 + k * 0.06}s` : "0s",
+                    }}
+                  >
+                    {f.title.toUpperCase()}
+                  </text>
+                ))}
               </motion.g>
             </g>
           </motion.g>
