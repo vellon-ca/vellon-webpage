@@ -181,6 +181,57 @@ body {
   border-bottom-color: var(--brass);
 }
 
+/* Scrub track — a hairline rule that fills brass as the film plays.
+   The fill is driven by --p rather than the element's background, because
+   Firefox paints ::-moz-range-track over it and the fill would vanish. */
+.tp-seek {
+  height: 14px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  --p: 0%;
+}
+.tp-seek::-webkit-slider-runnable-track {
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--brass) var(--p),
+    var(--rule-2) var(--p)
+  );
+}
+.tp-seek::-moz-range-track {
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--brass) var(--p),
+    var(--rule-2) var(--p)
+  );
+}
+.tp-seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 9px;
+  height: 9px;
+  margin-top: -3px;
+  background: var(--brass);
+  border: 0;
+  border-radius: 0;
+}
+.tp-seek::-moz-range-thumb {
+  width: 9px;
+  height: 9px;
+  background: var(--brass);
+  border: 0;
+  border-radius: 0;
+}
+.tp-seek:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
 /* Tick strip — a small instrument detail, used sparingly */
 .ticks {
   display: flex;

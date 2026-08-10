@@ -177,5 +177,8 @@ export const navLinks = [
   { label: "Enterprise", href: "/enterprise" },
   { label: "Healthcare", href: "/healthcare" },
   { label: "Government", href: "/government" },
+  /* Products are their own axis, not a fifth practice area — Dispatch is the
+     first of the four nouns in the homepage lede made real. */
+  { label: "Dispatch", href: "/dispatch" },
   { label: "Company", href: "/about" },
 ];
