@@ -16,8 +16,8 @@ export function Values() {
             </h2>
             <p className="lede mt-6 max-w-[34ch] text-pretty">
               Software that people organise their working day around has to
-              still be there in ten years. That shapes what we build and what we
-              refuse to.
+              still be there in ten years. That shapes what we build, and what
+              we don't.
             </p>
           </Reveal>
 

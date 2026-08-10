@@ -28,9 +28,9 @@ export function Hero() {
               {...rise(0.15, 14)}
               className="lede mt-8 max-w-[46ch] text-pretty"
             >
-              Vellon builds the operational software organisations depend on but
-              rarely think about — dispatch, records, scheduling, settlement.
-              The layer underneath the work.
+              Vellon builds the systems an operation runs on — dispatch,
+              records, scheduling, settlement. When they stop, everything else
+              stops with them.
             </motion.p>
             <motion.div
               {...rise(0.25, 12)}

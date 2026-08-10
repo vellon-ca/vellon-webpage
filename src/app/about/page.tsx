@@ -44,10 +44,9 @@ export default function AboutPage() {
 
           <Reveal delay={0.1} className="grid grid-cols-12 gap-y-8 pt-8">
             <p className="lede col-span-12 max-w-[56ch] text-pretty md:col-span-6 md:col-start-4">
-              Vellon builds operational software — the layer underneath the work
-              that organisations run on but rarely think about. Dispatch,
-              records, scheduling, settlement. The unglamorous systems that
-              decide whether a Tuesday goes smoothly or falls apart.
+              Vellon builds operational software — dispatch, records,
+              scheduling, settlement. The unglamorous systems that decide
+              whether a Tuesday goes smoothly or falls apart.
             </p>
             <dl className="col-span-12 md:col-span-2 md:col-start-11">
               {facts.map((f) => (

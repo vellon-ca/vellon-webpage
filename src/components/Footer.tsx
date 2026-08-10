@@ -18,7 +18,7 @@ export function Footer() {
               Software for the work underneath.
             </p>
             <p className="mt-6 max-w-[30ch] text-sm leading-relaxed text-fg-2">
-              Built for permanence, not relevance.
+              Built to still be here in ten years.
             </p>
           </div>
 
