@@ -24,7 +24,7 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled ? "border-b border-rule bg-paper/92 backdrop-blur-[2px]" : ""
+        scrolled ? "border-b border-rule bg-bg/92 backdrop-blur-[2px]" : ""
       }`}
     >
       <div className="mx-auto flex max-w-[86rem] items-center justify-between px-6 py-5 md:px-10">
@@ -35,7 +35,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="link-draw text-[0.8125rem] font-medium text-ink-2 transition-colors hover:text-ink"
+              className="link-draw text-[0.8125rem] font-medium text-fg-2 transition-colors hover:text-fg"
             >
               {link.label}
             </Link>
@@ -43,13 +43,13 @@ export function Navbar() {
           <span aria-hidden className="h-4 w-px bg-rule" />
           <Link
             href="/signin"
-            className="link-draw text-[0.8125rem] font-medium text-ink-2 transition-colors hover:text-ink"
+            className="link-draw text-[0.8125rem] font-medium text-fg-2 transition-colors hover:text-fg"
           >
             Sign in
           </Link>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 border-b border-ink pb-[3px] text-[0.8125rem] font-semibold text-ink"
+            className="group inline-flex items-center gap-2 border-b border-fg pb-[3px] text-[0.8125rem] font-semibold text-fg"
           >
             Get in touch
             <span className="transition-transform duration-400 group-hover:translate-x-[3px]">
@@ -63,7 +63,7 @@ export function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="relative z-[70] grid h-9 w-9 place-items-center text-ink md:hidden"
+          className="relative z-[70] grid h-9 w-9 place-items-center text-fg md:hidden"
         >
           <span className="sr-only">Menu</span>
           <span className="block space-y-[5px]">
@@ -93,7 +93,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[60] bg-paper px-6 pt-24 md:hidden"
+            className="fixed inset-0 z-[60] bg-bg px-6 pt-24 md:hidden"
           >
             <ul>
               {navLinks.map((link, i) => (
@@ -109,10 +109,10 @@ export function Navbar() {
                     onClick={() => setOpen(false)}
                     className="flex items-baseline gap-4 py-5"
                   >
-                    <span className="numeral text-xs text-accent">
+                    <span className="numeral text-xs text-brass">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="display text-[2rem] text-ink">
+                    <span className="display text-[2rem] text-fg">
                       {link.label}
                     </span>
                   </Link>
@@ -123,14 +123,14 @@ export function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="border-b border-ink pb-2 text-sm font-semibold text-ink"
+                className="border-b border-fg pb-2 text-sm font-semibold text-fg"
               >
                 Get in touch &rarr;
               </Link>
               <Link
                 href="/signin"
                 onClick={() => setOpen(false)}
-                className="text-sm text-ink-2"
+                className="text-sm text-fg-2"
               >
                 Sign in
               </Link>

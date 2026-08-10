@@ -22,20 +22,20 @@ export function VerticalsIndex() {
             <StaggerItem key={v.slug}>
               <Link
                 href={`/${v.slug}`}
-                className="index-row group grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-rule px-1 py-7 hover:bg-paper-2 md:py-9"
+                className="index-row group grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-rule px-1 py-7 hover:bg-surface md:py-9"
               >
-                <span className="numeral col-span-2 text-sm text-ink-3 transition-colors group-hover:text-accent md:col-span-1">
+                <span className="numeral col-span-2 text-sm text-fg-3 transition-colors group-hover:text-brass md:col-span-1">
                   {v.index}
                 </span>
                 <span className="display display-md col-span-10 md:col-span-4">
                   {v.name}
                 </span>
-                <span className="col-span-12 max-w-[46ch] text-pretty text-[0.9375rem] leading-relaxed text-ink-2 md:col-span-6 md:col-start-6">
+                <span className="col-span-12 max-w-[46ch] text-pretty text-[0.9375rem] leading-relaxed text-fg-2 md:col-span-6 md:col-start-6">
                   {v.blurb}
                 </span>
                 <span
                   aria-hidden
-                  className="hidden text-ink-3 transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-accent md:col-span-1 md:block md:justify-self-end"
+                  className="hidden text-fg-3 transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-brass md:col-span-1 md:block md:justify-self-end"
                 >
                   &rarr;
                 </span>

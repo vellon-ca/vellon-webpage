@@ -1,49 +1,57 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Vellon — editorial system
-   Warm paper, ink type, one oxide accent. Structure comes from
-   hairline rules and an asymmetric grid, never from cards or glows.
+   Vellon — machined instrument
+   Neutral dark ground, brass used only on data and drawings, square
+   corners, hairline rules. Colour carries information; it never
+   decorates. Structure comes from an asymmetric grid, as before.
    ------------------------------------------------------------------ */
 
 :root {
   /* Surfaces */
-  --paper: #f6f3ec;
-  --paper-2: #efeadf;
-  --paper-3: #e7e1d4;
+  --bg: #0f1114;
+  --surface: #16191d;
+  --surface-2: #1b1f24;
 
-  /* Ink */
-  --ink: #16150f;
-  --ink-2: #46443c;
-  --ink-3: #7a776c;
+  /* Type */
+  --fg: #e2e6e9;
+  --fg-2: #9aa3ab;
+  --fg-3: #79828a;
 
   /* Rules */
-  --rule: rgba(22, 21, 15, 0.16);
-  --rule-soft: rgba(22, 21, 15, 0.09);
+  --rule: rgba(255, 255, 255, 0.1);
+  --rule-2: rgba(255, 255, 255, 0.19);
 
-  /* One accent — an oxide cousin of the product orange */
-  --accent: #a6401a;
-  --accent-deep: #7f2f11;
+  /* The single signal — data, drawings and state only */
+  --brass: #c4a06a;
+  --brass-dim: #8a6f45;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-paper-2: var(--paper-2);
-  --color-paper-3: var(--paper-3);
-  --color-ink: var(--ink);
-  --color-ink-2: var(--ink-2);
-  --color-ink-3: var(--ink-3);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
   --color-rule: var(--rule);
-  --color-rule-soft: var(--rule-soft);
-  --color-accent: var(--accent);
-  --color-accent-deep: var(--accent-deep);
+  --color-rule-2: var(--rule-2);
+  --color-brass: var(--brass);
+  --color-brass-dim: var(--brass-dim);
 
-  --font-sans: var(--font-manrope);
-  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-plex-mono);
 }
 
-* {
-  border-color: var(--rule);
+/* Default border colour must sit in @layer base. Written unlayered it wins
+   over every Tailwind border-* utility regardless of specificity, because
+   unlayered declarations outrank layered ones in the cascade — which
+   silently turned border-brass, border-fg and border-rule-2 back into the
+   default hairline everywhere they were used. */
+@layer base {
+  * {
+    border-color: var(--rule);
+  }
 }
 
 html {
@@ -52,9 +60,9 @@ html {
 }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-archivo), system-ui, sans-serif;
   font-feature-settings: "kern", "liga", "calt";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -62,90 +70,57 @@ body {
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--paper);
+  background: var(--brass);
+  color: #0f1114;
 }
 
 /* ---------- Type ---------- */
 
+/* The display face is the grotesk, set tight. No serif anywhere. */
 .display {
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  line-height: 0.98;
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.032em;
+  line-height: 1.03;
 }
 
-/* Big display headline — deliberately large jump away from body copy */
 .display-xl {
-  font-size: clamp(2.9rem, 7.4vw, 6.4rem);
+  font-size: clamp(2.5rem, 6.2vw, 5.2rem);
 }
 .display-lg {
-  font-size: clamp(2.3rem, 5vw, 4.1rem);
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
 }
 .display-md {
-  font-size: clamp(1.7rem, 3vw, 2.6rem);
-  line-height: 1.06;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  line-height: 1.1;
 }
 
-/* Small metadata label — the only place tracking is used */
+/* Machine-readable metadata: mono, wide, quiet */
 .label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-weight: 400;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-3);
+  color: var(--fg-3);
 }
 
 .lede {
-  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
-  line-height: 1.6;
-  color: var(--ink-2);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
+  color: var(--fg-2);
 }
 
-/* Small index numerals are navigation, so they are set in the sans.
-   Fraunces has a flat-topped 3 with hairline joins that reads as a 5 at
-   12–14px — fine as a flourish, not fine as a list marker. */
+/* Index numerals — mono with tabular figures so columns line up */
 .numeral {
-  font-family: var(--font-manrope), system-ui, sans-serif;
-  font-weight: 600;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-variant-numeric: tabular-nums lining-nums;
-  letter-spacing: 0.08em;
-}
-
-/* Large standalone numerals are big enough for the display cut to hold up */
-.numeral-display {
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-}
-
-/* Drop cap for the opening paragraph of a text page */
-.dropcap::first-letter {
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
-  float: left;
-  font-size: 3.9em;
-  line-height: 0.82;
-  padding-right: 0.09em;
-  margin-top: 0.04em;
-  color: var(--accent);
+  letter-spacing: 0.1em;
 }
 
 /* ---------- Structure ---------- */
 
-/* Paper grain — a whisper of texture so flat areas don't read as digital flat */
-.grain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.038;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Link with an underline that draws in from the left */
+/* Underline that draws in from the left */
 .link-draw {
   position: relative;
   display: inline-block;
@@ -166,7 +141,7 @@ body {
   transform: scaleX(1);
 }
 
-/* Index row — hairline separated, hover reveals the accent rule */
+/* Index row — the brass rule confirms the row is live */
 .index-row {
   position: relative;
   transition: background-color 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -178,7 +153,7 @@ body {
   bottom: -1px;
   height: 1px;
   width: 100%;
-  background: var(--accent);
+  background: var(--brass);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -187,23 +162,41 @@ body {
   transform: scaleX(1);
 }
 
-/* Inputs: a ruled line, like a printed form — not a boxed field */
+/* Inputs read as fields on a form, not as boxes */
 .field-line {
   width: 100%;
   background: transparent;
   border: 0;
   border-bottom: 1px solid var(--rule);
   padding: 0.6rem 0;
-  font-size: 0.975rem;
-  color: var(--ink);
+  font-size: 0.9375rem;
+  color: var(--fg);
   outline: none;
   transition: border-color 0.3s ease;
 }
 .field-line::placeholder {
-  color: var(--ink-3);
+  color: var(--fg-3);
 }
 .field-line:focus {
-  border-bottom-color: var(--accent);
+  border-bottom-color: var(--brass);
+}
+
+/* Tick strip — a small instrument detail, used sparingly */
+.ticks {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 14px;
+}
+.ticks i {
+  width: 1px;
+  height: 5px;
+  background: var(--fg-3);
+  display: block;
+}
+.ticks i:nth-child(5n + 1) {
+  height: 13px;
+  background: var(--fg-2);
 }
 
 /* ---------- Scrollbar ----------
@@ -213,7 +206,7 @@ body {
 @supports (-moz-appearance: none) {
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--ink-3) var(--paper-2);
+    scrollbar-color: #343b42 var(--bg);
   }
 }
 
@@ -221,15 +214,14 @@ body {
   width: 11px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--paper-2);
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #c3bcac;
-  border: 3px solid var(--paper-2);
-  border-radius: 999px;
+  background: #2b3138;
+  border: 3px solid var(--bg);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--ink-3);
+  background: #3a424a;
 }
 
 @media (prefers-reduced-motion: reduce) {

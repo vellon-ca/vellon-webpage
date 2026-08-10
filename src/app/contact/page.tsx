@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="grain relative overflow-hidden pt-36 pb-24 md:pt-48 md:pb-32">
+    <section className="relative overflow-hidden pt-36 pb-24 md:pt-48 md:pb-32">
       <div className="mx-auto max-w-[86rem] px-6 md:px-10">
-        <div className="grid grid-cols-12 gap-x-10 gap-y-14">
+        <div className="grid grid-cols-12 gap-x-0 gap-y-14 md:gap-x-10">
           <div className="col-span-12 md:col-span-5">
             <p className="label">Contact</p>
             <h1 className="display mt-6 max-w-[13ch] text-balance text-[clamp(2.3rem,4.6vw,3.8rem)]">
@@ -19,7 +19,7 @@ export default function ContactPage() {
             </h1>
             <p className="lede mt-8 max-w-[38ch] text-pretty">
               Tell us who you are and what you&rsquo;re working on. Every message
-              reaches a person, and we answer all of them.
+              reaches a person.
             </p>
 
             <dl className="mt-12 max-w-sm">
@@ -28,19 +28,15 @@ export default function ContactPage() {
                 <dd>
                   <a
                     href="mailto:hello@vellon.ca"
-                    className="link-draw text-sm text-ink transition-colors hover:text-accent"
+                    className="link-draw text-sm text-fg transition-colors hover:text-brass"
                   >
                     hello@vellon.ca
                   </a>
                 </dd>
               </div>
-              <div className="flex items-baseline justify-between border-t border-rule py-3">
-                <dt className="label">Based in</dt>
-                <dd className="text-sm text-ink-2">Nova Scotia, Canada</dd>
-              </div>
               <div className="flex items-baseline justify-between border-t border-b border-rule py-3">
-                <dt className="label">Response</dt>
-                <dd className="text-sm text-ink-2">Within two business days</dd>
+                <dt className="label">Based in</dt>
+                <dd className="text-sm text-fg-2">Canada</dd>
               </div>
             </dl>
           </div>

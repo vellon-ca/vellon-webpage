@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { facts } from "@/lib/site";
+import { SectorStack } from "../SectorStack";
 import { ease } from "../Reveal";
 
 export function Hero() {
   const still = useReducedMotion();
-  /* With reduced motion we hand the settled state straight to the DOM. */
   const rise = (delay = 0, y = 18) => ({
     initial: { opacity: 0, y },
     animate: { opacity: 1, y: 0 },
@@ -15,72 +15,69 @@ export function Hero() {
   });
 
   return (
-    <section className="grain relative overflow-hidden pt-36 pb-16 md:pt-48 md:pb-20">
+    <section className="relative overflow-hidden pt-32 pb-14 md:pt-40 md:pb-20">
       <div className="mx-auto max-w-[86rem] px-6 md:px-10">
-        {/* Headline sits left, metadata rail sits right — deliberately off-centre */}
-        <div className="grid grid-cols-12 gap-y-10">
-          <motion.h1
-            {...rise(0)}
-            className="display display-xl col-span-12 lg:col-span-9"
-          >
-            Software that runs
-            <br />
-            the work <span className="text-accent">underneath</span>.
-          </motion.h1>
-
-          <motion.dl
-            {...rise(0.35, 0)}
-            className="col-span-12 self-end lg:col-span-3 lg:pb-2"
-          >
-            {facts.map((f) => (
-              <div
-                key={f.term}
-                className="flex items-baseline justify-between border-t border-rule py-2.5"
+        {/* Headline left, figure right — the drawing carries the argument */}
+        <div className="grid grid-cols-12 items-center gap-x-0 gap-y-12 lg:gap-x-10">
+          <div className="col-span-12 lg:col-span-6">
+            <motion.div {...rise(0, 0)} className="mb-7 h-px w-10 bg-brass" />
+            <motion.h1 {...rise(0.05)} className="display display-xl">
+              Software that runs the work underneath.
+            </motion.h1>
+            <motion.p
+              {...rise(0.15, 14)}
+              className="lede mt-8 max-w-[46ch] text-pretty"
+            >
+              Vellon builds the operational software organisations depend on but
+              rarely think about — dispatch, records, scheduling, settlement.
+              The layer underneath the work.
+            </motion.p>
+            <motion.div
+              {...rise(0.25, 12)}
+              className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+            >
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 border-b border-fg pb-1 text-sm font-semibold text-fg"
               >
-                <dt className="label">{f.term}</dt>
-                <dd className="text-[0.8125rem] text-ink-2">{f.detail}</dd>
-              </div>
-            ))}
-          </motion.dl>
+                Get in touch
+                <span className="transition-transform duration-400 group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </Link>
+              <Link
+                href="/about"
+                className="link-draw text-sm font-medium text-fg-2 transition-colors hover:text-fg"
+              >
+                Our mission
+              </Link>
+            </motion.div>
+          </div>
+
+          <motion.div
+            {...rise(0.35, 0)}
+            className="col-span-12 lg:col-span-6 lg:pl-4"
+          >
+            <SectorStack className="h-auto w-full max-w-[620px]" />
+          </motion.div>
         </div>
 
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={still ? { duration: 0 } : { duration: 1.3, delay: 0.2, ease }}
-          style={{ transformOrigin: "left" }}
-          className="mt-10 h-px w-full bg-rule md:mt-14"
-        />
-
-        {/* The lede is indented into the grid rather than centred under the title */}
-        <motion.div
-          {...rise(0.45, 14)}
-          className="grid grid-cols-12 gap-y-8 pt-8 md:pt-10"
+        {/* Company metadata as an instrument read-out. The cells carry their
+            own top rules, so the line reads as segmented rather than solid. */}
+        <motion.dl
+          {...rise(0.45, 10)}
+          className="mt-20 grid grid-cols-1 gap-x-12 gap-y-0 sm:grid-cols-3 md:mt-28"
         >
-          <p className="lede col-span-12 max-w-[38ch] text-pretty md:col-span-7 md:col-start-4 lg:col-span-5 lg:col-start-4">
-            Vellon builds the operational software organisations depend on but
-            rarely think about — dispatch, records, scheduling, settlement. The
-            layer underneath the work.
-          </p>
-
-          <div className="col-span-12 flex flex-wrap items-start gap-x-8 gap-y-4 md:col-span-3 md:col-start-10 md:justify-end lg:col-span-3 lg:col-start-10">
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-sm font-semibold text-ink"
+          {facts.map((f) => (
+            <div
+              key={f.term}
+              className="flex flex-col gap-1.5 border-t border-rule pt-4"
             >
-              Get in touch
-              <span className="transition-transform duration-400 group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </Link>
-            <Link
-              href="/about"
-              className="link-draw text-sm font-medium text-ink-2 transition-colors hover:text-ink"
-            >
-              Our mission
-            </Link>
-          </div>
-        </motion.div>
+              <dt className="label">{f.term}</dt>
+              <dd className="text-[0.875rem] text-fg-2">{f.detail}</dd>
+            </div>
+          ))}
+        </motion.dl>
       </div>
     </section>
   );

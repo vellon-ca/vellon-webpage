@@ -14,20 +14,20 @@ export function VerticalHero({ vertical }: { vertical: Vertical }) {
   });
 
   return (
-    <section className="grain relative overflow-hidden pt-36 pb-14 md:pt-48 md:pb-20">
+    <section className="relative overflow-hidden pt-36 pb-14 md:pt-48 md:pb-20">
       <div className="mx-auto max-w-[86rem] px-6 md:px-10">
         <div className="grid grid-cols-12 gap-x-6 gap-y-6">
           {/* The index numeral is used as a graphic element, not decoration */}
           <motion.span
             aria-hidden
             {...rise(0, 0)}
-            className="numeral numeral-display col-span-12 select-none text-[clamp(3.5rem,7vw,6.5rem)] leading-[0.8] text-ink/12 md:col-span-2"
+            className="numeral col-span-12 select-none text-[clamp(3.5rem,7vw,6.5rem)] leading-[0.8] text-fg/14 md:col-span-2"
           >
             {vertical.index}
           </motion.span>
 
           <div className="col-span-12 md:col-span-10 md:col-start-3">
-            <motion.p {...rise(0.05, 0)} className="label !text-accent">
+            <motion.p {...rise(0.05, 0)} className="label !text-brass">
               For {vertical.name}
             </motion.p>
             <motion.h1
@@ -54,7 +54,7 @@ export function VerticalHero({ vertical }: { vertical: Vertical }) {
           <div className="col-span-12 md:col-span-3 md:col-start-10 md:justify-self-end">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-sm font-semibold text-ink"
+              className="group inline-flex items-center gap-2 border-b border-fg pb-1 text-sm font-semibold text-fg"
             >
               Talk to us
               <span className="transition-transform duration-400 group-hover:translate-x-1">

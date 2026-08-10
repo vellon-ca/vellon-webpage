@@ -42,7 +42,7 @@ export default async function VerticalPage({
       <VerticalHero vertical={v} />
 
       {/* Broadsheet columns — ruled tops, no boxes */}
-      <section className="border-t border-rule bg-paper-2 py-20 md:py-28">
+      <section className="border-t border-rule bg-surface py-20 md:py-28">
         <div className="mx-auto max-w-[86rem] px-6 md:px-10">
           <Reveal className="pb-10 md:pb-14">
             <p className="label">What we deliver</p>
@@ -51,14 +51,14 @@ export default async function VerticalPage({
           <Stagger className="grid gap-x-10 gap-y-12 md:grid-cols-3">
             {v.features.map((f, i) => (
               <StaggerItem key={f.title}>
-                <div className="border-t border-ink/25 pt-6">
-                  <span className="numeral text-sm text-accent">
+                <div className="border-t border-rule-2 pt-6">
+                  <span className="numeral text-sm text-brass">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="display mt-4 text-[1.45rem] leading-tight">
                     {f.title}
                   </h3>
-                  <p className="mt-3 max-w-[38ch] text-pretty text-[0.9375rem] leading-relaxed text-ink-2">
+                  <p className="mt-3 max-w-[38ch] text-pretty text-[0.9375rem] leading-relaxed text-fg-2">
                     {f.body}
                   </p>
                 </div>
@@ -77,10 +77,10 @@ export default async function VerticalPage({
                 <Link
                   key={other.slug}
                   href={`/${other.slug}`}
-                  className="index-row group flex items-baseline justify-between gap-6 border-b border-rule px-1 py-5 hover:bg-paper-2"
+                  className="index-row group flex items-baseline justify-between gap-6 border-b border-rule px-1 py-5 hover:bg-surface"
                 >
                   <span className="flex items-baseline gap-5">
-                    <span className="numeral text-xs text-ink-3 transition-colors group-hover:text-accent">
+                    <span className="numeral text-xs text-fg-3 transition-colors group-hover:text-brass">
                       {other.index}
                     </span>
                     <span className="display text-[1.3rem]">
@@ -89,7 +89,7 @@ export default async function VerticalPage({
                   </span>
                   <span
                     aria-hidden
-                    className="text-ink-3 transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-accent"
+                    className="text-fg-3 transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-brass"
                   >
                     &rarr;
                   </span>

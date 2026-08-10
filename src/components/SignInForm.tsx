@@ -14,13 +14,13 @@ export function SignInForm() {
       <h1 className="display mt-5 text-[clamp(2rem,3.4vw,2.8rem)] leading-tight">
         Sign in to Vellon.
       </h1>
-      <p className="mt-4 text-[0.9375rem] text-ink-2">
+      <p className="mt-4 text-[0.9375rem] text-fg-2">
         Welcome back. Enter your details to continue.
       </p>
 
       <form
         onSubmit={handleSubmit}
-        className="mt-10 space-y-8 border-t border-ink/25 pt-8"
+        className="mt-10 space-y-8 border-t border-rule-2 pt-8"
       >
         <div>
           <label htmlFor="email" className="label mb-2 block">
@@ -43,7 +43,7 @@ export function SignInForm() {
             </label>
             <button
               type="button"
-              className="link-draw text-xs text-ink-3 transition-colors hover:text-ink"
+              className="link-draw text-xs text-fg-3 transition-colors hover:text-fg"
             >
               Forgot?
             </button>
@@ -60,7 +60,7 @@ export function SignInForm() {
 
         <button
           type="submit"
-          className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-sm font-semibold text-ink"
+          className="group inline-flex items-center gap-2 border-b border-fg pb-1 text-sm font-semibold text-fg"
         >
           Sign in
           <span className="transition-transform duration-400 group-hover:translate-x-1">
@@ -69,9 +69,9 @@ export function SignInForm() {
         </button>
       </form>
 
-      <p className="mt-8 text-sm text-ink-2">
+      <p className="mt-8 text-sm text-fg-2">
         Don&rsquo;t have an account?{" "}
-        <Link href="/contact" className="link-draw text-ink">
+        <Link href="/contact" className="link-draw text-fg">
           Get in touch
         </Link>
       </p>

@@ -1,29 +1,18 @@
 import Link from "next/link";
 
-export function Logo({
-  className = "",
-  tone = "ink",
-}: {
-  className?: string;
-  tone?: "ink" | "paper";
-}) {
+export function Logo({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
-      className={`group inline-flex items-baseline gap-[0.42rem] ${className}`}
+      className={`group inline-flex items-baseline gap-[0.45rem] ${className}`}
       aria-label="Vellon home"
     >
-      <span
-        className={`display text-[1.45rem] leading-none ${
-          tone === "paper" ? "text-paper" : "text-ink"
-        }`}
-        style={{ letterSpacing: "-0.03em" }}
-      >
+      <span className="text-[1.05rem] font-semibold tracking-[-0.03em] text-fg">
         Vellon
       </span>
       <span
         aria-hidden
-        className="mb-[0.18rem] block h-[5px] w-[5px] rounded-full bg-accent transition-transform duration-500 group-hover:translate-x-[3px]"
+        className="mb-[0.14rem] block h-[5px] w-[5px] bg-brass transition-transform duration-500 group-hover:translate-x-[3px]"
       />
     </Link>
   );

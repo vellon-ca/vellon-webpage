@@ -31,7 +31,7 @@ const beliefs = [
 export default function AboutPage() {
   return (
     <>
-      <section className="grain relative overflow-hidden pt-36 pb-14 md:pt-48 md:pb-20">
+      <section className="relative overflow-hidden pt-36 pb-14 md:pt-48 md:pb-20">
         <div className="mx-auto max-w-[86rem] px-6 md:px-10">
           <Reveal>
             <p className="label">Company</p>
@@ -43,7 +43,7 @@ export default function AboutPage() {
           <div className="mt-12 h-px w-full bg-rule md:mt-16" />
 
           <Reveal delay={0.1} className="grid grid-cols-12 gap-y-8 pt-8">
-            <p className="lede dropcap col-span-12 max-w-[56ch] text-pretty md:col-span-6 md:col-start-4">
+            <p className="lede col-span-12 max-w-[56ch] text-pretty md:col-span-6 md:col-start-4">
               Vellon builds operational software — the layer underneath the work
               that organisations run on but rarely think about. Dispatch,
               records, scheduling, settlement. The unglamorous systems that
@@ -56,7 +56,7 @@ export default function AboutPage() {
                   className="border-t border-rule py-2.5 first:border-t-0 md:first:border-t"
                 >
                   <dt className="label">{f.term}</dt>
-                  <dd className="mt-1 text-[0.8125rem] text-ink-2">
+                  <dd className="mt-1 text-[0.8125rem] text-fg-2">
                     {f.detail}
                   </dd>
                 </div>
@@ -68,19 +68,19 @@ export default function AboutPage() {
 
       <section
         id="mission"
-        className="grain relative overflow-hidden border-y border-rule bg-paper-2 py-20 md:py-28"
+        className="relative overflow-hidden border-y border-rule bg-surface py-20 md:py-28"
       >
         <div className="mx-auto max-w-[86rem] px-6 md:px-10">
-          <div className="grid grid-cols-12 gap-x-10 gap-y-12">
+          <div className="grid grid-cols-12 gap-x-0 gap-y-12 md:gap-x-10">
             <Reveal className="col-span-12 md:col-span-6">
-              <p className="label !text-accent">Mission</p>
+              <p className="label !text-brass">Mission</p>
               <p className="display mt-6 max-w-[20ch] text-[clamp(1.4rem,2.5vw,2.15rem)] leading-[1.24]">
                 To build technology the world can rely on — across every sector,
                 every border, and every generation.
               </p>
             </Reveal>
             <Reveal delay={0.1} className="col-span-12 md:col-span-5 md:col-start-8">
-              <p className="label !text-accent">Vision</p>
+              <p className="label !text-brass">Vision</p>
               <p className="display mt-6 max-w-[20ch] text-[clamp(1.4rem,2.5vw,2.15rem)] leading-[1.24]">
                 A future where Vellon is woven into how the world operates — not
                 just used, but depended upon.
@@ -103,13 +103,13 @@ export default function AboutPage() {
             {beliefs.map((b) => (
               <StaggerItem key={b.index}>
                 <div className="grid grid-cols-12 gap-x-6 gap-y-3 border-b border-rule py-8 md:py-11">
-                  <span className="numeral col-span-2 text-sm text-accent md:col-span-1">
+                  <span className="numeral col-span-2 text-sm text-brass md:col-span-1">
                     {b.index}
                   </span>
                   <h3 className="display col-span-10 max-w-[18ch] text-[clamp(1.2rem,1.9vw,1.7rem)] leading-tight md:col-span-4">
                     {b.title}
                   </h3>
-                  <p className="col-span-12 col-start-1 max-w-[54ch] text-pretty text-[0.9375rem] leading-relaxed text-ink-2 md:col-span-6 md:col-start-6">
+                  <p className="col-span-12 col-start-1 max-w-[54ch] text-pretty text-[0.9375rem] leading-relaxed text-fg-2 md:col-span-6 md:col-start-6">
                     {b.body}
                   </p>
                 </div>

@@ -164,10 +164,12 @@ export const ambitions = [
   },
 ];
 
+/* Keep every row here to something that can be stood behind — this rail
+   renders on the homepage hero, the about page and the share card. */
 export const facts = [
-  { term: "Founded", detail: "2026" },
-  { term: "Based in", detail: "Nova Scotia, Canada" },
+  { term: "Based in", detail: "Canada" },
   { term: "Practice", detail: "Operational software" },
+  { term: "Enquiries", detail: "hello@vellon.ca" },
 ];
 
 export const navLinks = [

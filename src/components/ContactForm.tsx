@@ -36,7 +36,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="border-t border-ink/25 pt-8">
+    <div className="border-t border-rule-2 pt-8">
       <AnimatePresence mode="wait">
         {submitted ? (
           <motion.div
@@ -46,13 +46,12 @@ export function ContactForm() {
             transition={{ duration: 0.7, ease }}
             className="flex min-h-[380px] flex-col justify-center"
           >
-            <span className="numeral text-sm text-accent">&mdash;</span>
+            <span className="numeral text-sm text-brass">&mdash;</span>
             <h3 className="display mt-4 text-[1.9rem] leading-tight">
               Message received.
             </h3>
-            <p className="mt-4 max-w-[36ch] text-pretty text-[0.9375rem] leading-relaxed text-ink-2">
-              Thank you for reaching out. We&rsquo;ll come back to you within two
-              business days.
+            <p className="mt-4 max-w-[36ch] text-pretty text-[0.9375rem] leading-relaxed text-fg-2">
+              Thank you for reaching out &mdash; we&rsquo;ll be in touch.
             </p>
           </motion.div>
         ) : (
@@ -73,8 +72,8 @@ export function ContactForm() {
                     aria-pressed={segment === s}
                     className={`border-b pb-1 text-sm transition-colors ${
                       segment === s
-                        ? "border-accent font-semibold text-accent"
-                        : "border-transparent text-ink-3 hover:border-rule hover:text-ink"
+                        ? "border-brass font-semibold text-brass"
+                        : "border-transparent text-fg-3 hover:border-rule hover:text-fg"
                     }`}
                   >
                     {s}
@@ -128,7 +127,7 @@ export function ContactForm() {
             />
 
             {error && (
-              <p className="border-l-2 border-accent bg-accent/6 px-4 py-3 text-sm text-accent-deep">
+              <p className="border-l-2 border-brass bg-brass/10 px-4 py-3 text-sm text-brass">
                 {error}
               </p>
             )}
@@ -136,7 +135,7 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={pending}
-              className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-sm font-semibold text-ink transition-opacity disabled:cursor-not-allowed disabled:opacity-50"
+              className="group inline-flex items-center gap-2 border-b border-fg pb-1 text-sm font-semibold text-fg transition-opacity disabled:cursor-not-allowed disabled:opacity-50"
             >
               {pending ? "Sending…" : "Send message"}
               {!pending && (
