@@ -185,7 +185,9 @@ body {
    The fill is driven by --p rather than the element's background, because
    Firefox paints ::-moz-range-track over it and the fill would vanish. */
 .tp-seek {
-  height: 14px;
+  display: block;
+  /* Tall enough to be hit with a thumb; the track stays a hairline. */
+  height: 22px;
   padding: 0;
   margin: 0;
   cursor: pointer;
@@ -193,6 +195,7 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   background: transparent;
+  touch-action: none;
   --p: 0%;
 }
 .tp-seek::-webkit-slider-runnable-track {
@@ -215,7 +218,7 @@ body {
   -webkit-appearance: none;
   width: 9px;
   height: 9px;
-  margin-top: -3px;
+  margin-top: -4px;
   background: var(--brass);
   border: 0;
   border-radius: 0;
@@ -230,6 +233,43 @@ body {
 .tp-seek:focus-visible {
   outline: 2px solid var(--brass);
   outline-offset: 3px;
+}
+
+/* Film player in full screen. The UA sizes the wrapper to the screen, so
+   the video has to be told to fit inside it — left alone it keeps its
+   intrinsic height and pins to the top with the transport stranded below.
+   :fullscreen and :-webkit-full-screen can't share a selector list: a
+   browser that doesn't know one of them drops the whole rule. */
+.film-player:fullscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000;
+}
+.film-player:fullscreen video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.film-player:-webkit-full-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000;
+}
+.film-player:-webkit-full-screen video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.film-player:focus {
+  outline: none;
 }
 
 /* Tick strip — a small instrument detail, used sparingly */
