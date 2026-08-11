@@ -1,14 +1,23 @@
 import { redirect } from "next/navigation";
 import { dispatchAppUrl } from "@/lib/site";
 
-/* There is no Vellon-wide account yet — the only thing anyone can sign in to
-   is the dispatch board, which runs as its own app off this site. So /signin
-   is a door, not a form: every sign-in affordance on the site (navbar, mobile
-   menu, the two on /dispatch) lands on the same place.
+/* The reserved front door for a Vellon account.
 
-   `SignInForm` is left in the repo, unrouted. If Vellon ever has accounts of
-   its own, this file goes back to rendering it and the product-specific doors
-   keep pointing at their own apps. */
+   Vellon runs several products; a Vellon-level sign-in is meant to be one staff
+   identity (customer staff and Vellon staff — never passengers or drivers, who
+   belong to a customer's service, not to us), with an org above the product and
+   entitlements deciding which products you land in. That doesn't exist yet:
+   Dispatch authenticates phone+OTP against its own Supabase project, and Vellon
+   Ops has a separate one. Consolidating those is the open decision.
+
+   So this stays a route rather than a hard link to the dispatch app: today it's
+   a redirect because there's one product to send people to, later it becomes
+   the authenticate-then-launch page — and the affordances pointing here (navbar,
+   mobile menu, footer) never have to change either way.
+
+   There is deliberately no form here. A form would promise a Vellon credential
+   that can't authenticate anyone, and the real one gets built against whatever
+   identity provider wins the fork above — not hand-rolled ahead of it. */
 export default function SignInPage() {
   redirect(dispatchAppUrl);
 }
