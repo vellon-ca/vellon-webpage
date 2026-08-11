@@ -22,10 +22,14 @@ export function Navbar() {
   }, [open]);
 
   return (
+    /* The open menu is a child of the header, so the header's own z-index is
+       the one that counts against the rest of the page — z-50 leaves it level
+       with the film panel. It goes up while the menu is open and back down
+       when it closes, so the film panel still covers the bar. */
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled ? "border-b border-rule bg-bg/92 backdrop-blur-[2px]" : ""
-      }`}
+      className={`fixed inset-x-0 top-0 transition-colors duration-500 ${
+        open ? "z-[80]" : "z-50"
+      } ${scrolled ? "border-b border-rule bg-bg/92 backdrop-blur-[2px]" : ""}`}
     >
       <div className="mx-auto flex max-w-[86rem] items-center justify-between px-6 py-5 md:px-10">
         <Logo />
@@ -93,7 +97,12 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[60] bg-bg px-6 pt-24 md:hidden"
+            /* dvh, not vh: on a phone `inset-0` resolves against the tall
+               viewport, which puts the bottom of the sheet under the browser
+               toolbar. It scrolls too — six entries plus the two account
+               links overrun a short screen, and a fixed box with no overflow
+               just piles them up. */
+            className="fixed inset-x-0 top-0 z-[60] h-[100dvh] overflow-y-auto overscroll-contain bg-bg px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-[4.75rem] md:hidden"
           >
             <ul>
               {navLinks.map((link, i) => (
@@ -107,19 +116,19 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-baseline gap-4 py-5"
+                    className="flex items-baseline gap-4 py-4"
                   >
                     <span className="numeral text-xs text-brass">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="display text-[2rem] text-fg">
+                    <span className="display text-[1.75rem] text-fg">
                       {link.label}
                     </span>
                   </Link>
                 </motion.li>
               ))}
             </ul>
-            <div className="mt-10 flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
