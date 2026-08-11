@@ -22,14 +22,15 @@ export function Hero() {
           <div className="col-span-12 lg:col-span-6">
             <motion.div {...rise(0, 0)} className="mb-7 h-px w-10 bg-brass" />
             <motion.h1 {...rise(0.05)} className="display display-xl">
-              Software that runs the work underneath.
+              Intelligent software for how the world works.
             </motion.h1>
             <motion.p
               {...rise(0.15, 14)}
               className="lede mt-8 max-w-[46ch] text-pretty"
             >
-              Vellon builds the software that turns complex operations into
-              simple, intelligent systems.
+              Vellon builds AI-native software for people, organisations, and
+              institutions — turning complex work into systems that are simpler,
+              more capable, and built to adapt.
             </motion.p>
             <motion.div
               {...rise(0.25, 12)}
