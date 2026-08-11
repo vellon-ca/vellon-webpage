@@ -45,9 +45,9 @@ export default function AboutPage() {
           <Reveal delay={0.1} className="grid grid-cols-12 gap-y-8 pt-8">
             <p className="lede col-span-12 max-w-[56ch] text-pretty md:col-span-6 md:col-start-4">
               Vellon builds the software that turns complex operations into
-              simple, intelligent systems. Dispatch, records, scheduling,
-              settlement — the work an organisation is run from, and the record
-              of it that outlives the day.
+              simple, intelligent systems. We build AI-native software for the
+              people and organisations doing the work that matters — from
+              everyday tools to the systems that run entire institutions.
             </p>
             <dl className="col-span-12 md:col-span-2 md:col-start-11">
               {facts.map((f) => (
