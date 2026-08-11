@@ -23,7 +23,7 @@ const opensTab = (a: CTAAction) => !!a.external && /^https?:/i.test(a.href);
 export function CTA({
   eyebrow = "Get in touch",
   title = "Let's build something worth relying on.",
-  body = "Tell us what you're working on. You'll hear back from a person who has read it.",
+  body = "Tell us what you're working on. We'll be in touch.",
   actions = DEFAULT_ACTIONS,
 }: {
   eyebrow?: string;
