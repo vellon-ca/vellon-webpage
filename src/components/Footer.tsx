@@ -15,7 +15,7 @@ export function Footer() {
         <div className="grid grid-cols-12 gap-x-0 gap-y-12 md:gap-x-8 py-16 md:py-20">
           <div className="col-span-12 md:col-span-5">
             <p className="display max-w-[18ch] text-[1.6rem] leading-[1.2]">
-              Software for the work underneath.
+              Intelligent software for how the world works.
             </p>
             <p className="mt-6 max-w-[30ch] text-sm leading-relaxed text-fg-2">
               Better systems for a changing world.

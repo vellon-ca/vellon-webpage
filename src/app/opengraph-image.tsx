@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Vellon — software for the work underneath";
+export const alt = "Vellon — intelligent software for how the world works";
 
 /* Pull the display face so the share card matches the site's identity.
    Wrapped so a font-fetch hiccup degrades to the system sans instead of
@@ -87,28 +87,30 @@ export default async function OpengraphImage() {
 
         {/* Headline */}
         <div style={{ display: "flex", flexDirection: "column", marginTop: 8 }}>
+          {/* 78px, not the 94px this carried before: the new headline's
+              longer line is 24 characters, which overruns the 1040px of card
+              inside the padding at the old size. */}
           <div
             style={{
               display: "flex",
               fontFamily: face,
-              fontSize: 94,
-              lineHeight: 1.02,
+              fontSize: 78,
+              lineHeight: 1.06,
               letterSpacing: "-0.025em",
             }}
           >
-            Software that runs
+            <span style={{ color: "#C4A06A" }}>Intelligent</span>&nbsp;software
           </div>
           <div
             style={{
               display: "flex",
               fontFamily: face,
-              fontSize: 94,
-              lineHeight: 1.02,
+              fontSize: 78,
+              lineHeight: 1.06,
               letterSpacing: "-0.025em",
             }}
           >
-            the work&nbsp;
-            <span style={{ color: "#C4A06A" }}>underneath</span>.
+            for how the world works.
           </div>
         </div>
 
@@ -130,7 +132,7 @@ export default async function OpengraphImage() {
               display: "flex",
             }}
           >
-            Operational software for the organisations that keep things moving.
+            AI-native software for people, organisations and institutions.
           </span>
           <span style={{ fontSize: 21, color: "#79828A", display: "flex" }}>
             vellon.ca

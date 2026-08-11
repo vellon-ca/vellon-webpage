@@ -19,13 +19,17 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Vellon — software for the work underneath",
+    default: "Vellon — intelligent software for how the world works",
     template: "%s — Vellon",
   },
+  /* Kept under ~155 characters: past that, search results truncate it
+     mid-sentence and the last clause is never read. */
   description:
-    "Vellon builds operational software for the organisations that keep things moving — from individuals to enterprises, healthcare systems and government.",
+    "Vellon builds AI-native software for people, organisations and institutions — turning complex work into systems that are simpler and more capable.",
   keywords: [
     "Vellon",
+    "AI-native software",
+    "applied AI",
     "operational software",
     "enterprise software",
     "healthcare software",
@@ -34,9 +38,9 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL("https://vellon.ca"),
   openGraph: {
-    title: "Vellon — software for the work underneath",
+    title: "Vellon — intelligent software for how the world works",
     description:
-      "Operational software for the organisations that keep things moving.",
+      "AI-native software for people, organisations and institutions.",
     url: "https://vellon.ca",
     siteName: "Vellon",
     locale: "en_CA",
