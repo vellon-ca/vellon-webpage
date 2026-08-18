@@ -3,6 +3,7 @@ import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -62,6 +63,7 @@ export default function RootLayout({
         <Navbar />
         <main className="relative flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
