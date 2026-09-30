@@ -119,9 +119,11 @@ company, and we do not set them or take a view on them.
   will not authorise the new amount, the change is refused and the ride continues
   to its original destination.
 - **The charge on your statement will show Vellon**, not the taxi company. We
-  collect the fare on the company's behalf and pass it on, keeping only the
-  software fee the company has agreed to pay us. This is a billing arrangement
-  between us and the company; it does not make Vellon the provider of your ride.
+  collect the fare on the company's behalf and account for it to the company —
+  or, depending on how that company has chosen to be paid, to the driver —
+  keeping only the software fee the company has agreed to pay us. This is a
+  billing arrangement between us and the company; it does not make Vellon the
+  provider of your ride, and it does not change who you are owed a service by.
 - A **receipt** is emailed to you if you have given us an email address.
 - **Discounts.** If you hold a verified student discount or a promotional code, it
   is applied automatically at booking. Discounts are the taxi company's, may be
