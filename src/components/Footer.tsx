@@ -68,8 +68,18 @@ export function Footer() {
 
         <div className="flex flex-col items-start justify-between gap-3 border-t border-rule py-6 text-xs text-fg-3 sm:flex-row sm:items-center">
           <p>&copy; {new Date().getFullYear()} Vellon. All rights reserved.</p>
-          <p className="flex items-center gap-4">
+          <p className="flex flex-wrap items-center gap-4">
             <span>Canada</span>
+            <span aria-hidden className="h-3 w-px bg-rule" />
+            {/* App-store review looks for a privacy policy reachable from the
+                site, not only from a form field, so it lives in the legal line
+                on every page rather than in the Company column. */}
+            <Link
+              href="/privacy"
+              className="link-draw transition-colors hover:text-fg"
+            >
+              Privacy
+            </Link>
             <span aria-hidden className="h-3 w-px bg-rule" />
             <a
               href="mailto:hello@vellon.ca"

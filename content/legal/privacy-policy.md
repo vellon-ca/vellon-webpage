@@ -1,7 +1,6 @@
 # Privacy Policy
 
-**Effective date:** [DATE THIS IS PUBLISHED]
-**Last updated:** [DATE THIS IS PUBLISHED]
+**Effective date:** 1 October 2026 · **Last updated:** 1 October 2026
 
 Vellon ("Vellon", "we", "us") makes **Vellon Dispatch** — taxi dispatch software
 that we license to taxi companies. We are a software vendor. We do not operate
@@ -347,9 +346,11 @@ means you accept the updated policy.
 
 ## Contact us, and how to complain
 
-**Vellon**
-Email: **support@vellon.ca**
-Post: [MAILING ADDRESS]
+**Vellon** — **support@vellon.ca**
+
+Email reaches us fastest and is the best way to make a privacy request. If you
+would rather correspond on paper, ask by email and we will give you a postal
+address.
 
 Write to us first — most requests are resolved quickly, and we will respond within
 30 days.
