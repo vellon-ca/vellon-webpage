@@ -346,10 +346,11 @@ means you accept the updated policy.
 
 ## Contact us, and how to complain
 
-**Vellon**
+**Vellon** — **support@vellon.ca**
 
-- Email: **support@vellon.ca**
-- Post: 42 Mountain View St, Kentville, NS B4N 1A8, Canada
+Email reaches us fastest and is the best way to make a privacy request. If you
+would rather correspond on paper, ask by email and we will give you a postal
+address.
 
 Write to us first — most requests are resolved quickly, and we will respond within
 30 days.
