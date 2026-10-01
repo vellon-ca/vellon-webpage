@@ -81,6 +81,13 @@ export function Footer() {
               Privacy
             </Link>
             <span aria-hidden className="h-3 w-px bg-rule" />
+            <Link
+              href="/terms"
+              className="link-draw transition-colors hover:text-fg"
+            >
+              Terms
+            </Link>
+            <span aria-hidden className="h-3 w-px bg-rule" />
             <a
               href="mailto:hello@vellon.ca"
               className="link-draw transition-colors hover:text-fg"
