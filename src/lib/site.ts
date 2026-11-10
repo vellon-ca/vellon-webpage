@@ -1,7 +1,7 @@
 /* The live dispatch board runs as its own app, not on this site — a fleet
    signing in leaves vellon.ca. Kept here so the marketing pages and the nav
    can never point at two different doors. */
-export const dispatchAppUrl = "https://vellon-dispatch.vercel.app";
+export const dispatchAppUrl = "https://dashboard.vellon.ca";
 
 export type Vertical = {
   slug: string;
