@@ -183,7 +183,8 @@ export const navLinks = [
   { label: "Healthcare", href: "/healthcare" },
   { label: "Government", href: "/government" },
   /* Products are their own axis, not a fifth practice area — Dispatch is the
-     first of the four nouns in the homepage lede made real. */
-  { label: "Dispatch", href: "/dispatch" },
+     first of the four nouns in the homepage lede made real. It has its own
+     site (repo `vellon-dispatch-web`); /dispatch here redirects to it. */
+  { label: "Dispatch", href: "https://dispatch.vellon.ca" },
   { label: "Company", href: "/about" },
 ];
