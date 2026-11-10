@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
         destination: "https://vellon.ca/:path*",
         permanent: true,
       },
+      {
+        // The product page moved to its own site (vellon-dispatch-web).
+        source: "/dispatch/:path*",
+        destination: "https://dispatch.vellon.ca/:path*",
+        permanent: true,
+      },
     ];
   },
 };
