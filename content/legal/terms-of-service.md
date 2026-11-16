@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Effective date:** 1 October 2026 · **Last updated:** 12 October 2026
+**Effective date:** 1 October 2026 · **Last updated:** 16 November 2026
 
 These terms are an agreement between you and **Vellon** ("Vellon", "we", "us")
 about your use of the **Vellon Dispatch** mobile app and dispatch dashboard.
@@ -74,8 +74,9 @@ You need an account to book a ride or to drive.
   for one.
 - Tell us promptly at **support@vellon.ca** if you think someone else has got into
   your account.
-- **An account belongs to one taxi company's app.** If you use the apps of two
-  companies that run on Vellon Dispatch, you have a separate account with each,
+- **An account belongs to one taxi company.** If you use Vellon Dispatch with two
+  companies — in the Vellon app or in a company's own app — you have a separate
+  account with each,
   and nothing carries over between them — not your name, your saved cards, your
   saved places or your ride history.
 
@@ -116,9 +117,16 @@ pay with it. Some companies are cash only, and their app will not offer a card.
 
 - Card details are captured by **Stripe** inside the app and go directly to Stripe.
   We never receive your card number — see the [Privacy Policy](/privacy).
+- On an iPhone you may also pay with **Apple Pay**, where the company accepts
+  cards. It works like a card: the same hold, charge and receipt.
 - When you book, a **hold** is placed on your card for the estimated fare. Nothing
   is taken at that point. When the ride ends, the actual fare is charged and the
   hold is released.
+- For a ride **booked more than 24 hours ahead**, the hold is placed about 24
+  hours before pickup instead. If your card will not authorise it, the app tells
+  you and asks you to fix the payment or switch the ride to cash. If it is not
+  fixed by the deadline the app shows you, which is before pickup, the ride is
+  cancelled.
 - If the ride changes — you move the destination, or the trip is shortened — the
   hold is re-taken for the new amount before the change is applied. If your card
   will not authorise the new amount, the change is refused and the ride continues
@@ -129,7 +137,7 @@ pay with it. Some companies are cash only, and their app will not offer a card.
   instructions, and the company pays us a software fee out of it. We do not
   receive or hold your fare.
 - A saved card is stored by Stripe **for that taxi company only**. A card you
-  saved in one company's app is not available in another's.
+  saved for one company is not available with another.
 - A **receipt** is emailed to you if you have given us an email address.
 - **Discounts.** If you hold a verified student discount or a promotional code, it
   is applied automatically at booking. Discounts are the taxi company's, may be

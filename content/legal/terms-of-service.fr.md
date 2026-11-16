@@ -1,6 +1,6 @@
 # Conditions d'utilisation
 
-**Date d'entrée en vigueur :** 1er octobre 2026 · **Dernière mise à jour :** 12 octobre 2026
+**Date d'entrée en vigueur :** 1er octobre 2026 · **Dernière mise à jour :** 16 novembre 2026
 
 *Cette version française est une traduction de la [version anglaise](/terms). En
 cas de divergence entre les deux, la version anglaise prévaut, dans la mesure
@@ -87,9 +87,9 @@ Il vous faut un compte pour réserver une course ou pour conduire.
   jamais.
 - Avisez-nous sans tarder à **support@vellon.ca** si vous croyez que quelqu'un
   d'autre a accédé à votre compte.
-- **Un compte est rattaché à l'application d'une seule entreprise de taxi.** Si
-  vous utilisez les applications de deux entreprises qui fonctionnent avec Vellon
-  Dispatch, vous avez un compte distinct auprès de chacune, et rien ne passe de
+- **Un compte est rattaché à une seule entreprise de taxi.** Si vous utilisez
+  Vellon Dispatch avec deux entreprises — dans l'application Vellon ou dans
+  l'application d'une entreprise —, vous avez un compte distinct auprès de chacune, et rien ne passe de
   l'un à l'autre — ni votre nom, ni vos cartes enregistrées, ni vos lieux
   enregistrés, ni l'historique de vos courses.
 
@@ -138,9 +138,18 @@ carte.
 - Les données de la carte sont saisies par **Stripe** à l'intérieur de
   l'application et transmises directement à Stripe. Nous ne recevons jamais votre
   numéro de carte — voir la [Politique de confidentialité](/fr/privacy).
+- Sur un iPhone, vous pouvez aussi payer avec **Apple Pay**, lorsque
+  l'entreprise accepte les cartes. Cela fonctionne comme une carte : la même
+  retenue, la même facturation et le même reçu.
 - Au moment de la réservation, une **retenue** est placée sur votre carte pour le
   tarif estimé. Rien n'est prélevé à ce moment-là. À la fin de la course, le
   tarif réel est facturé et la retenue est libérée.
+- Pour une course **réservée plus de 24 heures à l'avance**, la retenue est
+  plutôt placée environ 24 heures avant la prise en charge. Si votre carte ne
+  l'autorise pas, l'application vous en avise et vous demande de régler le
+  paiement ou de passer la course au comptant. Si ce n'est pas réglé avant
+  l'échéance que l'application vous indique, qui précède la prise en charge, la
+  course est annulée.
 - Si la course change — vous déplacez la destination, ou le trajet est
   raccourci —, la retenue est reprise pour le nouveau montant avant que le
   changement soit appliqué. Si votre carte n'autorise pas le nouveau montant, le
@@ -152,8 +161,8 @@ carte.
   celle-ci nous verse des frais de logiciel prélevés sur ce montant. Nous ne
   recevons ni ne détenons le prix de votre course.
 - Une carte enregistrée est conservée par Stripe **pour cette entreprise de taxi
-  seulement**. Une carte enregistrée dans l'application d'une entreprise n'est pas
-  disponible dans celle d'une autre.
+  seulement**. Une carte enregistrée pour une entreprise n'est pas disponible
+  auprès d'une autre.
 - Un **reçu** vous est envoyé par courriel si vous nous avez donné une adresse
   courriel.
 - **Rabais.** Si vous bénéficiez d'un rabais étudiant vérifié ou d'un code

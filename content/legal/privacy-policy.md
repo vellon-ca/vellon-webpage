@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Effective date:** 1 October 2026 · **Last updated:** 12 October 2026
+**Effective date:** 1 October 2026 · **Last updated:** 16 November 2026
 
 Vellon ("Vellon", "we", "us") makes **Vellon Dispatch** — taxi dispatch software
 that we license to taxi companies. We are a software vendor. We do not operate
@@ -83,7 +83,7 @@ rather than a promise about our intentions.
 | In-ride chat messages between you and your driver | Coordinating pickup |
 | Push notification token and notification preferences | To send ride updates to your device |
 | Reports you file about a driver | Safety and conduct investigations by the taxi company |
-| Which taxi company your app is for | Determined by the app you installed, not by us tracking you |
+| Which taxi company your account is with | The company whose app you installed, or the one you chose or whose link you opened in the Vellon app — not by us tracking you |
 
 **Your approximate location** is used once, when you open the map, to centre it
 and offer nearby pickup points. The passenger app does **not** track your
@@ -111,10 +111,14 @@ record, enrolment status, or grades.
   mobile number, and the company can see your payments in its Stripe records:
   amount, date, card brand, last four digits and cardholder name. The company
   does not get your card number either.
+- **If you pay with Apple Pay**, the payment is set up between Apple and Stripe,
+  and Apple's own privacy policy covers what Apple processes. We receive only the
+  card brand, the last four digits and the fact that Apple Pay was used, so your
+  receipt can show how you paid.
 - **Other taxi companies get nothing.** Companies using Vellon Dispatch are
   separated at the database level and cannot see each other's passengers or
-  rides. Your account exists with one company only. If you use a second
-  company's app, you have a separate account there, and the two share nothing.
+  rides. Your account exists with one company only. If you use the app with a
+  second company, you have a separate account there, and the two share nothing.
 - **Vellon** can see ride and fare records, because our fee is a percentage of
   fares and because we operate and support the system.
 

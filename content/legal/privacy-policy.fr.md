@@ -1,6 +1,6 @@
 # Politique de confidentialité
 
-**Date d'entrée en vigueur :** 1er octobre 2026 · **Dernière mise à jour :** 12 octobre 2026
+**Date d'entrée en vigueur :** 1er octobre 2026 · **Dernière mise à jour :** 16 novembre 2026
 
 *Cette version française est une traduction de la [version anglaise](/privacy). En
 cas de divergence entre les deux, la version anglaise prévaut, dans la mesure
@@ -96,7 +96,7 @@ du système et non d'une promesse sur nos intentions.
 | Messages échangés avec votre chauffeur pendant la course | Coordination du départ |
 | Jeton de notification poussée et préférences de notification | Pour envoyer les mises à jour de course à votre appareil |
 | Signalements que vous déposez au sujet d'un chauffeur | Enquêtes de l'entreprise de taxi en matière de sécurité et de conduite |
-| L'entreprise de taxi à laquelle votre application est rattachée | Déterminée par l'application que vous avez installée, et non par un suivi de notre part |
+| L'entreprise de taxi auprès de laquelle vous avez un compte | L'entreprise dont vous avez installé l'application, ou celle que vous avez choisie ou dont vous avez ouvert le lien dans l'application Vellon — et non un suivi de notre part |
 
 **Votre position approximative** est utilisée une seule fois, à l'ouverture de la
 carte, pour la centrer et proposer des points de départ à proximité.
@@ -129,12 +129,16 @@ votre statut d'inscription, ni vos notes.
   peut voir vos paiements dans ses registres Stripe : montant, date, marque de la
   carte, quatre derniers chiffres et nom du titulaire. L'entreprise n'obtient pas
   non plus votre numéro de carte.
+- **Si vous payez avec Apple Pay**, le paiement est établi entre Apple et Stripe,
+  et la politique de confidentialité d'Apple encadre ce qu'Apple traite. Nous ne
+  recevons que la marque de la carte, ses quatre derniers chiffres et le fait
+  qu'Apple Pay a été utilisé, afin que votre reçu indique comment vous avez payé.
 - **Les autres entreprises de taxi n'obtiennent rien.** Les entreprises qui
   utilisent Vellon Dispatch sont séparées au niveau même de la base de données et
   ne peuvent pas voir les passagers ni les courses les unes des autres. Votre
   compte n'existe qu'auprès d'une seule entreprise. Si vous utilisez
-  l'application d'une deuxième entreprise, vous y avez un compte distinct, et les
-  deux ne partagent rien.
+  l'application avec une deuxième entreprise, vous y avez un compte distinct, et
+  les deux ne partagent rien.
 - **Vellon** peut voir les registres de courses et de tarifs, parce que nos frais
   correspondent à un pourcentage des tarifs et parce que nous exploitons le
   système et en assurons le soutien.
