@@ -9,7 +9,8 @@ transportation. When you book a ride, your contract for that ride is with the
 taxi company, not with us.
 
 This policy explains what personal information the Vellon Dispatch mobile app,
-the dispatch dashboard, and the vellon.ca website collect, why, who it is shared
+the dispatch dashboard, and the Vellon websites (vellon.ca and dispatch.vellon.ca)
+collect, why, who it is shared
 with, where it is stored, and how to get it back or have it deleted.
 
 It applies to four groups of people, and what we hold is materially different for
@@ -34,7 +35,7 @@ behalf and under its instructions**.
 
 **Vellon** is responsible for the account and credential layer — your login, your
 device's notification token, and the security of the platform itself — and for the
-vellon.ca website.
+Vellon websites.
 
 In practice: if you want a trip record corrected, the taxi company decides; if
 you want your account closed, that is built into the app and we handle it. Either
@@ -228,10 +229,10 @@ to do its job.
 | **Supabase** (database, accounts, file storage) | Everything described above | **United States** (`us-east-1`) |
 | **Stripe** | Card payments, on the taxi company's own Stripe account | United States, with global processing |
 | **Twilio** | SMS codes and ride reminders; masked passenger–driver calls and texts | United States |
-| **Resend** | Emailed receipts and sign-in codes | United States |
+| **Resend** | Emailed receipts, sign-in codes, and messages sent through our website forms | United States |
 | **Google Maps Platform** | Address search, distance and route calculation | Global |
 | **Expo / Apple / Google** | Delivery of push notifications to your device | Global |
-| **Vercel** | Hosting for the dispatch dashboard and the vellon.ca website | Global |
+| **Vercel** | Hosting for the dispatch dashboard and the Vellon websites | Global |
 
 **Your information is stored in the United States.** Our databases run in a US
 region. This is permitted under Canadian privacy law, and we note it plainly
@@ -244,10 +245,17 @@ When you type an address, that text is sent to Google to return suggestions.
 When we calculate a fare or a route, pickup and drop-off coordinates are sent to
 Google. Google is not told who you are.
 
-**The vellon.ca website** uses Vercel Analytics, which counts page views and
-referrers without cookies and without building a profile of you. The website sets
-no advertising cookies and carries no third-party trackers. The apps use no
-analytics at all.
+**The Vellon websites** (vellon.ca and dispatch.vellon.ca) use Vercel Analytics,
+which counts page views and referrers without cookies and without building a
+profile of you. The websites set no advertising cookies and carry no third-party
+trackers. The apps use no analytics at all.
+
+**Contact and demo request forms.** When you send us a message or ask for a demo,
+we receive what you type — your name, email address, your phone number if you give
+it, your company, and whatever you choose to tell us about your fleet — by email,
+through Resend. We use it only to reply to you and to talk with you about Vellon.
+We keep it while we are in conversation with you, and delete it within 24 months
+of our last contact, or sooner if you ask.
 
 ---
 

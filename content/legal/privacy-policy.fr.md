@@ -15,7 +15,7 @@ pour cette course est conclu avec l'entreprise de taxi, et non avec nous.
 
 La présente politique explique quels renseignements personnels sont recueillis
 par l'application mobile Vellon Dispatch, par le tableau de bord de la centrale
-et par le site vellon.ca, pourquoi ils le sont, à qui ils sont communiqués, où
+et par les sites Web de Vellon (vellon.ca et dispatch.vellon.ca), pourquoi ils le sont, à qui ils sont communiqués, où
 ils sont conservés, et comment les récupérer ou les faire supprimer.
 
 Elle s'applique à quatre groupes de personnes, et ce que nous détenons diffère
@@ -42,7 +42,7 @@ selon ses instructions**.
 
 **Vellon** est responsable des comptes et des identifiants — votre connexion, le
 jeton de notification de votre appareil et la sécurité de la plateforme
-elle-même — ainsi que du site vellon.ca.
+elle-même — ainsi que des sites Web de Vellon.
 
 En pratique : si vous voulez faire corriger le registre d'une course, c'est
 l'entreprise de taxi qui décide ; si vous voulez fermer votre compte, la
@@ -261,10 +261,10 @@ reçoit que ce dont il a besoin pour faire son travail.
 | **Supabase** (base de données, comptes, stockage de fichiers) | Tout ce qui est décrit ci-dessus | **États-Unis** (`us-east-1`) |
 | **Stripe** | Paiements par carte, sur le compte Stripe de l'entreprise de taxi | États-Unis, avec traitement à l'échelle mondiale |
 | **Twilio** | Codes par texto et rappels de course ; appels et textos masqués entre passagers et chauffeurs | États-Unis |
-| **Resend** | Reçus et codes de connexion par courriel | États-Unis |
+| **Resend** | Reçus et codes de connexion par courriel, et messages envoyés au moyen des formulaires de nos sites | États-Unis |
 | **Google Maps Platform** | Recherche d'adresses, calcul de distances et d'itinéraires | Mondial |
 | **Expo / Apple / Google** | Acheminement des notifications poussées vers votre appareil | Mondial |
-| **Vercel** | Hébergement du tableau de bord de la centrale et du site vellon.ca | Mondial |
+| **Vercel** | Hébergement du tableau de bord de la centrale et des sites Web de Vellon | Mondial |
 
 **Vos renseignements sont conservés aux États-Unis.** Nos bases de données sont
 hébergées dans une région américaine. Les lois canadiennes sur la protection des
@@ -279,10 +279,20 @@ suggestions. Lorsque nous calculons un tarif ou un itinéraire, les coordonnées
 départ et de la destination sont envoyées à Google. Google ne sait pas qui vous
 êtes.
 
-**Le site vellon.ca** utilise Vercel Analytics, qui compte les pages vues et les
-sites référents sans témoins (cookies) et sans établir de profil à votre sujet.
-Le site ne dépose aucun témoin publicitaire et ne contient aucun traceur de
-tiers. Les applications n'utilisent aucun outil d'analyse.
+**Les sites Web de Vellon** (vellon.ca et dispatch.vellon.ca) utilisent Vercel
+Analytics, qui compte les pages vues et les sites référents sans témoins (cookies)
+et sans établir de profil à votre sujet. Les sites ne déposent aucun témoin
+publicitaire et ne contiennent aucun traceur de tiers. Les applications
+n'utilisent aucun outil d'analyse.
+
+**Formulaires de contact et de demande de démonstration.** Lorsque vous nous
+écrivez ou demandez une démonstration, nous recevons ce que vous saisissez — votre
+nom, votre adresse courriel, votre numéro de téléphone si vous le donnez, votre
+entreprise et ce que vous choisissez de nous dire au sujet de votre parc de
+véhicules — par courriel, au moyen de Resend. Nous l'utilisons uniquement pour
+vous répondre et pour discuter de Vellon avec vous. Nous le conservons pendant nos
+échanges, et le supprimons au plus tard 24 mois après notre dernier contact, ou
+plus tôt si vous le demandez.
 
 ---
 
