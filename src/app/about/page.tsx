@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Vellon builds operational software for the organisations that keep things moving — from individuals to enterprises, healthcare systems and government.",
+  alternates: { canonical: "/about" },
 };
 
 const beliefs = [
