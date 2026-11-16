@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Effective date:** 1 October 2026 · **Last updated:** 1 October 2026
+**Effective date:** 1 October 2026 · **Last updated:** 12 October 2026
 
 Vellon ("Vellon", "we", "us") makes **Vellon Dispatch** — taxi dispatch software
 that we license to taxi companies. We are a software vendor. We do not operate
@@ -72,8 +72,8 @@ rather than a promise about our intentions.
 | Information | Why we have it |
 |---|---|
 | Name | Shown to your driver so they can find you; printed on receipts |
-| Mobile number | Your login credential, and how ride reminders reach you by SMS |
-| Email address (optional) | Emailed receipts, and an alternative way to sign in |
+| Mobile number | How you sign in, unless you sign in by email; and how ride reminders reach you by SMS |
+| Email address (optional) | Emailed receipts, and another way to sign in |
 | Profile photo (optional) | Shown to your driver at pickup |
 | Pickup and drop-off addresses and coordinates | To price, dispatch, and complete the ride |
 | Trip history — times, addresses, fare, payment method, status | Your ride history, the taxi company's record, receipts, and disputes |
@@ -106,9 +106,15 @@ record, enrolment status, or grades.
 - **The taxi company's dispatch staff** can see your rides with that company,
   including addresses, fare, your name and your contact number — the same
   information a dispatcher would have written in a logbook.
+- **Card payments are made on the taxi company's own Stripe account.** If you
+  save a card, Stripe holds it for that company, together with your name and
+  mobile number, and the company can see your payments in its Stripe records:
+  amount, date, card brand, last four digits and cardholder name. The company
+  does not get your card number either.
 - **Other taxi companies get nothing.** Companies using Vellon Dispatch are
   separated at the database level and cannot see each other's passengers or
-  rides.
+  rides. Your account exists with one company only. If you use a second
+  company's app, you have a separate account there, and the two share nothing.
 - **Vellon** can see ride and fare records, because our fee is a percentage of
   fares and because we operate and support the system.
 
@@ -168,12 +174,6 @@ tracked.
 | Star ratings and passenger reviews about you | You see your average score. Written comments go to the taxi company, not to you |
 | Passenger reports about you | Safety and conduct investigations by the taxi company |
 | Messages between you and dispatch, and notices your company broadcasts to drivers | Day-to-day operational communication. **Dispatch chat is not private from your employer** — it is a record of the company's own conversations with you |
-| Stripe Connect account reference | Only if your company pays you directly through the platform |
-
-**If your company pays you through the platform**, Stripe collects identity and
-banking details from you directly in order to meet financial regulations. That
-information goes to Stripe, not to us — we hold only a reference to your Stripe
-account and its verification status.
 
 **Drivers cannot be fully erased, and this is deliberate.** Completed trips are
 the settlement record, the payout record and the safety record at the same time,
@@ -222,7 +222,7 @@ to do its job.
 | Provider | What it handles | Where |
 |---|---|---|
 | **Supabase** (database, accounts, file storage) | Everything described above | **United States** (`us-east-1`) |
-| **Stripe** | Card payments, and driver payouts where used | United States, with global processing |
+| **Stripe** | Card payments, on the taxi company's own Stripe account | United States, with global processing |
 | **Twilio** | SMS codes and ride reminders; masked passenger–driver calls and texts | United States |
 | **Resend** | Emailed receipts and sign-in codes | United States |
 | **Google Maps Platform** | Address search, distance and route calculation | Global |
@@ -291,7 +291,7 @@ receive are about a specific ride, or a code you asked for.
 You can delete your account yourself, in the app.
 
 - **Passengers:** Profile → Delete account. Your profile, saved cards and saved
-  places are deleted, the customer record held at Stripe is deleted, and your
+  places are deleted, the customer record Stripe holds for that company is deleted, and your
   rides and reviews are detached from you so the taxi company's financial records
   stay complete without naming you. You cannot delete mid-ride — finish or cancel
   the ride first, because a live card hold must not be left attached to nobody.

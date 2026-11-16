@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { renderLegalDoc } from "@/lib/legalDoc";
 
 /**
@@ -31,7 +32,10 @@ export const metadata: Metadata = {
   title: "Terms of Service",
   description:
     "The terms for using the Vellon Dispatch app and dashboard — what Vellon is responsible for, what the taxi company is responsible for, and how fares, accounts and payments work.",
-  alternates: { canonical: "/terms" },
+  alternates: {
+    canonical: "/terms",
+    languages: { "en-CA": "/terms", "fr-CA": "/fr/terms" },
+  },
 };
 
 export default function TermsPage() {
@@ -40,7 +44,17 @@ export default function TermsPage() {
   return (
     <section className="pt-36 pb-24 md:pt-48 md:pb-32">
       <div className="mx-auto max-w-[86rem] px-6 md:px-10">
-        <p className="label">Legal</p>
+        <div className="flex items-baseline justify-between gap-6">
+          <p className="label">Legal</p>
+          <Link
+            href="/fr/terms"
+            hrefLang="fr"
+            lang="fr"
+            className="link-draw text-xs text-fg-3 transition-colors hover:text-fg"
+          >
+            Français
+          </Link>
+        </div>
         <div className="mt-8 h-px w-full bg-rule md:mt-10" />
 
         <article

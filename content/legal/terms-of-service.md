@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Effective date:** 1 October 2026 · **Last updated:** 1 October 2026
+**Effective date:** 1 October 2026 · **Last updated:** 12 October 2026
 
 These terms are an agreement between you and **Vellon** ("Vellon", "we", "us")
 about your use of the **Vellon Dispatch** mobile app and dispatch dashboard.
@@ -74,6 +74,10 @@ You need an account to book a ride or to drive.
   for one.
 - Tell us promptly at **support@vellon.ca** if you think someone else has got into
   your account.
+- **An account belongs to one taxi company's app.** If you use the apps of two
+  companies that run on Vellon Dispatch, you have a separate account with each,
+  and nothing carries over between them — not your name, your saved cards, your
+  saved places or your ride history.
 
 You can delete your account yourself in the app. What happens to your information
 when you do is described in the [Privacy Policy](/privacy).
@@ -107,31 +111,34 @@ company, and we do not set them or take a view on them.
 
 **Cash.** You pay the driver directly. We are not part of that payment.
 
-**Card.** You may save a card in the app and pay with it.
+**Card.** Where the taxi company accepts cards, you may save a card in the app and
+pay with it. Some companies are cash only, and their app will not offer a card.
 
 - Card details are captured by **Stripe** inside the app and go directly to Stripe.
   We never receive your card number — see the [Privacy Policy](/privacy).
 - When you book, a **hold** is placed on your card for the estimated fare. Nothing
-  is taken at that point. When the ride ends, we charge the actual fare and the
+  is taken at that point. When the ride ends, the actual fare is charged and the
   hold is released.
 - If the ride changes — you move the destination, or the trip is shortened — the
   hold is re-taken for the new amount before the change is applied. If your card
   will not authorise the new amount, the change is refused and the ride continues
   to its original destination.
-- **The charge on your statement will show Vellon**, not the taxi company. We
-  collect the fare on the company's behalf and account for it to the company —
-  or, depending on how that company has chosen to be paid, to the driver —
-  keeping only the software fee the company has agreed to pay us. This is a
-  billing arrangement between us and the company; it does not make Vellon the
-  provider of your ride, and it does not change who you are owed a service by.
+- **The charge is made by the taxi company, and your statement will show the
+  company's name**, not Vellon's. The fare is charged on the company's own Stripe
+  account. Our software places the hold and triggers the charge on the company's
+  instructions, and the company pays us a software fee out of it. We do not
+  receive or hold your fare.
+- A saved card is stored by Stripe **for that taxi company only**. A card you
+  saved in one company's app is not available in another's.
 - A **receipt** is emailed to you if you have given us an email address.
 - **Discounts.** If you hold a verified student discount or a promotional code, it
   is applied automatically at booking. Discounts are the taxi company's, may be
   withdrawn, and cannot be applied after a ride has ended.
 
-If you believe a charge is wrong, write to **support@vellon.ca** and we will look
-at it with the taxi company. If the amount charged is the issue, we can correct it;
-if the rate itself is the issue, that is the company's decision.
+If you believe a charge is wrong, contact the taxi company, or write to
+**support@vellon.ca** and we will look at it with them. We can check what the
+software calculated and why. A refund is made by the taxi company, because the
+charge is theirs, and the rate itself is the company's decision.
 
 ---
 
@@ -386,6 +393,9 @@ laws of Canada that apply there, and the courts of Nova Scotia have jurisdiction
 over any dispute. If you are a consumer resident elsewhere in Canada, this does not
 take away any right you have to bring a claim where you live, or the protection of
 the consumer law of your own province.
+
+These terms are also published in French. If the two versions differ, the English
+version governs, to the extent the law allows.
 
 ---
 
