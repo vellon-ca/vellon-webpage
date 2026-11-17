@@ -50,8 +50,8 @@ export const metadata: Metadata = {
 };
 
 /* Structured data for search engines: who Vellon is, so Google can show the
-   brand panel and the site name. Facts only; add sameAs links once the
-   LinkedIn and Google Business profiles exist. */
+   brand panel and the site name. Facts only. sameAs lists Vellon's own
+   profiles elsewhere; add the Google Business profile once it exists. */
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -63,6 +63,7 @@ const structuredData = {
       url: "https://vellon.ca",
       logo: "https://vellon.ca/apple-icon",
       email: "support@vellon.ca",
+      sameAs: ["https://www.linkedin.com/company/vellon-inc"],
     },
     {
       "@type": "WebSite",
