@@ -49,6 +49,31 @@ export const metadata: Metadata = {
   },
 };
 
+/* Structured data for search engines: who Vellon is, so Google can show the
+   brand panel and the site name. Facts only; add sameAs links once the
+   LinkedIn and Google Business profiles exist. */
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vellon.ca/#organization",
+      name: "Vellon",
+      legalName: "Vellon Inc.",
+      url: "https://vellon.ca",
+      logo: "https://vellon.ca/apple-icon",
+      email: "support@vellon.ca",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vellon.ca/#website",
+      name: "Vellon",
+      url: "https://vellon.ca",
+      publisher: { "@id": "https://vellon.ca/#organization" },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -60,6 +85,10 @@ export default function RootLayout({
       className={`${archivo.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bg text-fg">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Navbar />
         <main className="relative flex-1">{children}</main>
         <Footer />

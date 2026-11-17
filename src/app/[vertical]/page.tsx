@@ -23,6 +23,7 @@ export async function generateMetadata({
   return {
     title: `Vellon for ${v.name}`,
     description: v.description,
+    alternates: { canonical: `/${v.slug}` },
   };
 }
 
