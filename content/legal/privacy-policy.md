@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Effective date:** 1 October 2026 · **Last updated:** 1 October 2026
+**Effective date:** 1 October 2026 · **Last updated:** 16 November 2026
 
 Vellon ("Vellon", "we", "us") makes **Vellon Dispatch** — taxi dispatch software
 that we license to taxi companies. We are a software vendor. We do not operate
@@ -9,7 +9,8 @@ transportation. When you book a ride, your contract for that ride is with the
 taxi company, not with us.
 
 This policy explains what personal information the Vellon Dispatch mobile app,
-the dispatch dashboard, and the vellon.ca website collect, why, who it is shared
+the dispatch dashboard, and the Vellon websites (vellon.ca and dispatch.vellon.ca)
+collect, why, who it is shared
 with, where it is stored, and how to get it back or have it deleted.
 
 It applies to four groups of people, and what we hold is materially different for
@@ -34,7 +35,7 @@ behalf and under its instructions**.
 
 **Vellon** is responsible for the account and credential layer — your login, your
 device's notification token, and the security of the platform itself — and for the
-vellon.ca website.
+Vellon websites.
 
 In practice: if you want a trip record corrected, the taxi company decides; if
 you want your account closed, that is built into the app and we handle it. Either
@@ -72,8 +73,8 @@ rather than a promise about our intentions.
 | Information | Why we have it |
 |---|---|
 | Name | Shown to your driver so they can find you; printed on receipts |
-| Mobile number | Your login credential, and how ride reminders reach you by SMS |
-| Email address (optional) | Emailed receipts, and an alternative way to sign in |
+| Mobile number | How you sign in, unless you sign in by email; and how ride reminders reach you by SMS |
+| Email address (optional) | Emailed receipts, and another way to sign in |
 | Profile photo (optional) | Shown to your driver at pickup |
 | Pickup and drop-off addresses and coordinates | To price, dispatch, and complete the ride |
 | Trip history — times, addresses, fare, payment method, status | Your ride history, the taxi company's record, receipts, and disputes |
@@ -83,7 +84,7 @@ rather than a promise about our intentions.
 | In-ride chat messages between you and your driver | Coordinating pickup |
 | Push notification token and notification preferences | To send ride updates to your device |
 | Reports you file about a driver | Safety and conduct investigations by the taxi company |
-| Which taxi company your app is for | Determined by the app you installed, not by us tracking you |
+| Which taxi company your account is with | The company whose app you installed, or the one you chose or whose link you opened in the Vellon app — not by us tracking you |
 
 **Your approximate location** is used once, when you open the map, to centre it
 and offer nearby pickup points. The passenger app does **not** track your
@@ -106,9 +107,19 @@ record, enrolment status, or grades.
 - **The taxi company's dispatch staff** can see your rides with that company,
   including addresses, fare, your name and your contact number — the same
   information a dispatcher would have written in a logbook.
+- **Card payments are made on the taxi company's own Stripe account.** If you
+  save a card, Stripe holds it for that company, together with your name and
+  mobile number, and the company can see your payments in its Stripe records:
+  amount, date, card brand, last four digits and cardholder name. The company
+  does not get your card number either.
+- **If you pay with Apple Pay**, the payment is set up between Apple and Stripe,
+  and Apple's own privacy policy covers what Apple processes. We receive only the
+  card brand, the last four digits and the fact that Apple Pay was used, so your
+  receipt can show how you paid.
 - **Other taxi companies get nothing.** Companies using Vellon Dispatch are
   separated at the database level and cannot see each other's passengers or
-  rides.
+  rides. Your account exists with one company only. If you use the app with a
+  second company, you have a separate account there, and the two share nothing.
 - **Vellon** can see ride and fare records, because our fee is a percentage of
   fares and because we operate and support the system.
 
@@ -168,12 +179,6 @@ tracked.
 | Star ratings and passenger reviews about you | You see your average score. Written comments go to the taxi company, not to you |
 | Passenger reports about you | Safety and conduct investigations by the taxi company |
 | Messages between you and dispatch, and notices your company broadcasts to drivers | Day-to-day operational communication. **Dispatch chat is not private from your employer** — it is a record of the company's own conversations with you |
-| Stripe Connect account reference | Only if your company pays you directly through the platform |
-
-**If your company pays you through the platform**, Stripe collects identity and
-banking details from you directly in order to meet financial regulations. That
-information goes to Stripe, not to us — we hold only a reference to your Stripe
-account and its verification status.
 
 **Drivers cannot be fully erased, and this is deliberate.** Completed trips are
 the settlement record, the payout record and the safety record at the same time,
@@ -222,12 +227,12 @@ to do its job.
 | Provider | What it handles | Where |
 |---|---|---|
 | **Supabase** (database, accounts, file storage) | Everything described above | **United States** (`us-east-1`) |
-| **Stripe** | Card payments, and driver payouts where used | United States, with global processing |
+| **Stripe** | Card payments, on the taxi company's own Stripe account | United States, with global processing |
 | **Twilio** | SMS codes and ride reminders; masked passenger–driver calls and texts | United States |
-| **Resend** | Emailed receipts and sign-in codes | United States |
+| **Resend** | Emailed receipts, sign-in codes, and messages sent through our website forms | United States |
 | **Google Maps Platform** | Address search, distance and route calculation | Global |
 | **Expo / Apple / Google** | Delivery of push notifications to your device | Global |
-| **Vercel** | Hosting for the dispatch dashboard and the vellon.ca website | Global |
+| **Vercel** | Hosting for the dispatch dashboard and the Vellon websites | Global |
 
 **Your information is stored in the United States.** Our databases run in a US
 region. This is permitted under Canadian privacy law, and we note it plainly
@@ -240,10 +245,17 @@ When you type an address, that text is sent to Google to return suggestions.
 When we calculate a fare or a route, pickup and drop-off coordinates are sent to
 Google. Google is not told who you are.
 
-**The vellon.ca website** uses Vercel Analytics, which counts page views and
-referrers without cookies and without building a profile of you. The website sets
-no advertising cookies and carries no third-party trackers. The apps use no
-analytics at all.
+**The Vellon websites** (vellon.ca and dispatch.vellon.ca) use Vercel Analytics,
+which counts page views and referrers without cookies and without building a
+profile of you. The websites set no advertising cookies and carry no third-party
+trackers. The apps use no analytics at all.
+
+**Contact and demo request forms.** When you send us a message or ask for a demo,
+we receive what you type — your name, email address, your phone number if you give
+it, your company, and whatever you choose to tell us about your fleet — by email,
+through Resend. We use it only to reply to you and to talk with you about Vellon.
+We keep it while we are in conversation with you, and delete it within 24 months
+of our last contact, or sooner if you ask.
 
 ---
 
@@ -291,7 +303,7 @@ receive are about a specific ride, or a code you asked for.
 You can delete your account yourself, in the app.
 
 - **Passengers:** Profile → Delete account. Your profile, saved cards and saved
-  places are deleted, the customer record held at Stripe is deleted, and your
+  places are deleted, the customer record Stripe holds for that company is deleted, and your
   rides and reviews are detached from you so the taxi company's financial records
   stay complete without naming you. You cannot delete mid-ride — finish or cancel
   the ride first, because a live card hold must not be left attached to nobody.

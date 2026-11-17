@@ -26,6 +26,12 @@ import { Marked } from "marked";
 export function slugify(text: string): string {
   return text
     .toLowerCase()
+    // Fold accents to their base letter first. Without this the French
+    // documents lose every accented letter outright ("réserver" -> "rserver"),
+    // which still resolves but is unreadable in a shared link. English headings
+    // carry no accents, so their ids are unchanged.
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9 -]/g, "")
     .trim()
     .replace(/\s+/g, "-");

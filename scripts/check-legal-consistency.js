@@ -24,7 +24,9 @@ const checks = [
   ["privacy agrees report survives", /Kept even if the person who filed them deletes/.test(p)],
   ["terms: driver anonymised, not erased", /\*\*anonymised\*\* rather than erased/.test(t)],
   ["privacy agrees driver anonymised", /anonymised/.test(p)],
-  ["terms: statement shows Vellon (merchant of record, honest)", /charge on your statement will show Vellon/.test(t)],
+  ["terms: the company charges the card, not Vellon (direct charges)", /charge is made by the taxi company/.test(t) && !/statement will show Vellon/.test(t)],
+  ["privacy agrees the charge is on the company's Stripe account", /taxi company's own Stripe account/.test(p)],
+  ["privacy does NOT describe driver payouts through the platform", !/pays you (directly )?through the platform|driver payouts/.test(p)],
   ["terms: no cancellation or no-show fee", /does not charge a cancellation fee or a no-show fee/.test(t)],
   ["terms does NOT claim usage analytics", !/usage data|analytics to improve/i.test(t)],
   ["terms does NOT set fares", /The rates are the taxi company/.test(t)],
@@ -36,6 +38,37 @@ const checks = [
   ["consumer savings clause present", /cannot lawfully be limited/.test(t)],
   ["NS law + consumer carve-out", /Province of Nova Scotia/.test(t) && /where you live/.test(t)],
 ];
+
+// Every in-document #anchor must resolve, in all four files. The slug rule is a
+// copy of slugify() in src/lib/legalDoc.ts -- keep the two identical.
+const slug = (h) => h.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .replace(/[^a-z0-9 -]/g, "").trim().replace(/\s+/g, "-");
+const shape = {};
+for (const f of ["terms-of-service", "privacy-policy", "terms-of-service.fr", "privacy-policy.fr"]) {
+  const raw = fs.readFileSync(`content/legal/${f}.md`, "utf8");
+  const ids = new Set([...raw.matchAll(/^#{1,6} (.+)$/gm)].map((m) => slug(m[1])));
+  const dead = [...norm(raw).matchAll(/\]\(#([^)]+)\)/g)].map((m) => m[1]).filter((a) => !ids.has(a));
+  checks.push([`${f}: no dead anchors${dead.length ? " -- " + dead.join(", ") : ""}`, dead.length === 0]);
+  shape[f] = [
+    (raw.match(/^## /gm) || []).length,
+    (raw.match(/^### /gm) || []).length,
+    (raw.match(/^\|/gm) || []).length,
+    (raw.match(/^- /gm) || []).length,
+    (norm(raw).match(/\*\*/g) || []).length,
+  ].join("/");
+}
+// The French files are translations of the English ones: same sections, same
+// table rows, same bullets, same count of bold markers. A mismatch means one
+// side was edited without the other.
+for (const d of ["terms-of-service", "privacy-policy"]) {
+  checks.push([`${d}: fr has the same shape as en (${shape[d]} vs ${shape[d + ".fr"]})`, shape[d] === shape[d + ".fr"]]);
+}
+const tf = norm(fs.readFileSync("content/legal/terms-of-service.fr.md", "utf8"));
+const pf = norm(fs.readFileSync("content/legal/privacy-policy.fr.md", "utf8"));
+checks.push(["fr: both say the English version prevails", /version anglaise prévaut/.test(tf) && /version anglaise prévaut/.test(pf)]);
+checks.push(["fr terms link to /fr/privacy, never /privacy", /\]\(\/fr\/privacy\)/.test(tf) && !/\]\(\/privacy\)/.test(tf)]);
+checks.push(["en terms say a French version exists", /also published in French/.test(t)]);
+
 let bad = 0;
 for (const [n, ok] of checks) { if (!ok) bad++; console.log((ok ? "PASS" : "FAIL").padEnd(5), n); }
 console.log(bad ? `\n${bad} FAILED` : `\nall ${checks.length} consistency checks pass`);

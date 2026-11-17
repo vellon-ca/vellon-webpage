@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { renderLegalDoc } from "@/lib/legalDoc";
 
 /**
@@ -17,7 +18,10 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "How Vellon Dispatch handles passenger, driver and dispatch information — what is collected, who it is shared with, where it is stored and how to have it deleted.",
-  alternates: { canonical: "/privacy" },
+  alternates: {
+    canonical: "/privacy",
+    languages: { "en-CA": "/privacy", "fr-CA": "/fr/privacy" },
+  },
 };
 
 export default function PrivacyPage() {
@@ -26,7 +30,17 @@ export default function PrivacyPage() {
   return (
     <section className="pt-36 pb-24 md:pt-48 md:pb-32">
       <div className="mx-auto max-w-[86rem] px-6 md:px-10">
-        <p className="label">Legal</p>
+        <div className="flex items-baseline justify-between gap-6">
+          <p className="label">Legal</p>
+          <Link
+            href="/fr/privacy"
+            hrefLang="fr"
+            lang="fr"
+            className="link-draw text-xs text-fg-3 transition-colors hover:text-fg"
+          >
+            Français
+          </Link>
+        </div>
         <div className="mt-8 h-px w-full bg-rule md:mt-10" />
 
         {/*
