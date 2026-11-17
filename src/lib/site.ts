@@ -3,6 +3,9 @@
    can never point at two different doors. */
 export const dispatchAppUrl = "https://dashboard.vellon.ca";
 
+/* Vellon's LinkedIn page: the footer link and the structured data's sameAs. */
+export const linkedInUrl = "https://www.linkedin.com/company/vellon-inc";
+
 export type Vertical = {
   slug: string;
   index: string; // editorial index numeral, e.g. "01"

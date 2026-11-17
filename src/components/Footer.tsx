@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { verticals } from "@/lib/site";
+import { linkedInUrl, verticals } from "@/lib/site";
+import { LinkedInIcon } from "@/components/LinkedInIcon";
 
 const company = [
   { label: "About", href: "/about" },
@@ -93,6 +94,16 @@ export function Footer() {
               className="link-draw transition-colors hover:text-fg"
             >
               hello@vellon.ca
+            </a>
+            <span aria-hidden className="h-3 w-px bg-rule" />
+            <a
+              href={linkedInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Vellon on LinkedIn"
+              className="transition-colors hover:text-fg"
+            >
+              <LinkedInIcon className="h-3.5 w-3.5" />
             </a>
           </p>
         </div>

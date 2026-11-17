@@ -3,6 +3,7 @@ import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { linkedInUrl } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/next";
 
 const archivo = Archivo({
@@ -63,7 +64,7 @@ const structuredData = {
       url: "https://vellon.ca",
       logo: "https://vellon.ca/apple-icon",
       email: "support@vellon.ca",
-      sameAs: ["https://www.linkedin.com/company/vellon-inc"],
+      sameAs: [linkedInUrl],
     },
     {
       "@type": "WebSite",
