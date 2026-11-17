@@ -3,6 +3,7 @@ import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { linkedInUrl } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/next";
 
 const archivo = Archivo({
@@ -50,8 +51,8 @@ export const metadata: Metadata = {
 };
 
 /* Structured data for search engines: who Vellon is, so Google can show the
-   brand panel and the site name. Facts only; add sameAs links once the
-   LinkedIn and Google Business profiles exist. */
+   brand panel and the site name. Facts only. sameAs lists Vellon's own
+   profiles elsewhere; add the Google Business profile once it exists. */
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -63,6 +64,7 @@ const structuredData = {
       url: "https://vellon.ca",
       logo: "https://vellon.ca/apple-icon",
       email: "support@vellon.ca",
+      sameAs: [linkedInUrl],
     },
     {
       "@type": "WebSite",
