@@ -1,6 +1,6 @@
 # Conditions d'utilisation
 
-**Date d'entrée en vigueur :** 1er octobre 2026 · **Dernière mise à jour :** 16 novembre 2026
+**Date d'entrée en vigueur :** 1er octobre 2026 · **Dernière mise à jour :** 26 novembre 2026
 
 *Cette version française est une traduction de la [version anglaise](/terms). En
 cas de divergence entre les deux, la version anglaise prévaut, dans la mesure
@@ -260,7 +260,15 @@ actions dans le tableau de bord sont consignées sous votre compte.
   chauffeur ou l'appeler sur une ligne masquée qui cache les deux vrais numéros.
   Les appels ne sont **pas enregistrés**. Ces moyens servent à organiser la
   course. Tout propos injurieux, menaçant ou harcelant qui y est tenu constitue un
-  manquement aux présentes conditions et peut être signalé.
+  manquement aux présentes conditions et peut être signalé. Les messages du
+  clavardage sont filtrés automatiquement, et les mots offensants sont masqués.
+- **Tolérance zéro pour les abus.** Aucun contenu répréhensible ni aucun
+  utilisateur abusif n'est toléré. Les passagers et les chauffeurs peuvent se
+  signaler ou se bloquer mutuellement depuis le clavardage de la course. Bloquer
+  quelqu'un masque immédiatement ses messages, vous empêche de vous écrire ou de
+  vous appeler, et avise Vellon. Nous examinons chaque signalement dans les
+  24 heures et y donnons suite, ce qui peut comprendre le retrait du contenu et la
+  suspension ou la suppression du compte de la personne en cause.
 - Si vous désactivez les notifications dans les réglages de votre appareil, les
   alertes de course ne vous parviendront plus. Pour les chauffeurs, cela signifie
   aussi que les offres de course ne peuvent plus vous parvenir ; aucune course ne
@@ -271,7 +279,9 @@ actions dans le tableau de bord sont consignées sous votre compte.
 ## Évaluations, avis et signalements de sécurité
 
 Les passagers peuvent évaluer un chauffeur et laisser un commentaire, et peuvent
-signaler la conduite d'un chauffeur.
+signaler la conduite d'un chauffeur. Les passagers et les chauffeurs peuvent aussi
+se signaler ou se bloquer mutuellement depuis le clavardage de la course (voir
+[Tolérance zéro pour les abus](#messages-appels-et-notifications)).
 
 - Écrivez ce qui s'est passé. Ne soumettez rien de faux, rien d'injurieux, ni rien
   qui contienne les renseignements personnels d'autres personnes.

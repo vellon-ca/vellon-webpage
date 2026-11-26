@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Effective date:** 1 October 2026 · **Last updated:** 16 November 2026
+**Effective date:** 1 October 2026 · **Last updated:** 26 November 2026
 
 These terms are an agreement between you and **Vellon** ("Vellon", "we", "us")
 about your use of the **Vellon Dispatch** mobile app and dispatch dashboard.
@@ -223,7 +223,14 @@ dashboard are logged against your account.
 - **In-ride chat and masked calls.** You can message your driver, or call them on
   a masked line that hides both real numbers. Calls are **not recorded**. These
   channels are for arranging the ride. Anything abusive, threatening or harassing
-  sent through them is a breach of these terms and may be reported.
+  sent through them is a breach of these terms and may be reported. Chat messages
+  are filtered automatically, and offensive words are hidden.
+- **No tolerance for abuse.** There is no tolerance for objectionable content or
+  abusive users. Passengers and drivers can report or block each other from the
+  ride chat. Blocking someone hides their messages from you immediately, stops
+  you messaging or calling each other, and notifies Vellon. We review every
+  report within 24 hours and act on it, which can include removing the content
+  and suspending or removing the account of the person responsible.
 - Turning notifications off in your device settings will stop ride alerts
   reaching you. For drivers, it also means ride offers cannot reach you, so you
   will not be dispatched.
@@ -233,7 +240,8 @@ dashboard are logged against your account.
 ## Ratings, reviews and safety reports
 
 Passengers can rate a driver and leave a comment, and can report a driver's
-conduct.
+conduct. Passengers and drivers can also report or block each other from the
+ride chat (see [No tolerance for abuse](#messages-calls-and-notifications)).
 
 - Write what happened. Do not submit anything false, abusive, or containing other
   people's personal information.
